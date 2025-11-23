@@ -822,6 +822,10 @@ function finishShopping() {
         hoverLog: hoverLog,
         indecisionLog: indecisionLog
     };
+	
+	document.getElementById("finishBtn").disabled = true;
+	document.getElementById("finishBtn").innerText = "Submitting...";
+
 
     fetch("https://script.google.com/macros/s/AKfycbynE_0AMronN-Zdrt3PAknFdz--bZo5idPZRy71q1FC4KrUSx4YZ-1oQHWUXC3TQ5NaWg/exec", {
         method: "POST",
@@ -849,6 +853,27 @@ function showParticipantForm() {
 </script>
 
 
+
+
+
+<div id="thankYouScreen" style="
+    display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+    background:linear-gradient(135deg,#f2f4f7,#ffffff);
+    z-index:3000; display:flex; justify-content:center; align-items:center;
+">
+    <div style="
+        background:white; padding:40px 50px; width:420px; border-radius:20px;
+        box-shadow:0 6px 25px rgba(0,0,0,0.15); text-align:center;
+    ">
+        <h2 style="font-size:26px; color:#004aad; margin-bottom:15px;">
+            🎉 Thank you for participating!
+        </h2>
+        <p style="color:#333; font-size:16px;">
+            Your responses have been recorded successfully. <br><br>
+            You may now close this page.
+        </p>
+    </div>
+</div>
 
 
 
