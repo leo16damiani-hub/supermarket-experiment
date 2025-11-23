@@ -232,7 +232,127 @@ button {
     color: #444;
 }
 
+/* 📌 RESPONSIVE LAYOUT */
 
+/* 🔵 Tablet (max-width: 1024px) */
+@media (max-width: 1024px) {
+    body {
+        padding-top: 120px;
+        zoom: 0.95;
+    }
+
+    #shelf {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .productGrid {
+        grid-template-columns: repeat(4, 1fr); /* 4 prodotti per riga */
+        gap: 14px;
+    }
+
+    .product {
+        height: 200px;
+        padding: 8px;
+    }
+
+    .product img {
+        height: 110px;
+    }
+}
+
+/* 🟢 Smartphone (max-width: 700px) */
+@media (max-width: 700px) {
+    body {
+        padding-top: 120px;
+        justify-content: flex-start;
+    }
+
+    #header {
+        padding: 0 20px;
+        height: 65px;
+    }
+
+    #header h2 {
+        font-size: 18px;
+    }
+
+    #instructionBar {
+        height: 60px;
+        font-size: 13px;
+        text-align: center;
+        padding: 0 10px;
+    }
+
+    #cartButton, #header div {
+        padding: 7px 12px;
+        border-radius: 14px;
+        font-size: 14px;
+    }
+
+    .productGrid {
+        grid-template-columns: repeat(2, 1fr); /* 2 prodotti per riga */
+        gap: 12px;
+    }
+
+    .product {
+        height: 180px;
+        padding: 6px;
+    }
+
+    .product img {
+        height: 90px;
+    }
+
+    .name {
+        font-size: 12px;
+    }
+
+    .price {
+        font-size: 12px;
+    }
+
+    #cartPage {
+        width: 95%;
+        padding: 20px 15px;
+    }
+
+    #cartPage h2 {
+        font-size: 20px;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 10px;
+        font-size: 16px;
+        padding: 12px 0;
+    }
+
+    #toast {
+        right: 15px;
+        top: 90px;
+        font-size: 13px;
+        padding: 10px 14px;
+    }
+}
+
+/* 🔴 Mobile piccolo (max-width: 400px) */
+@media (max-width: 400px) {
+    .productGrid {
+        grid-template-columns: 1fr; /* 1 prodotto per riga */
+    }
+
+    #header h2 {
+        font-size: 16px;
+    }
+
+    #instructionBar {
+        font-size: 12px;
+    }
+}
+
+
+	
 </style>
 
 
@@ -241,6 +361,7 @@ button {
 
 
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
 
@@ -881,3 +1002,4 @@ function showParticipantForm() {
 
 </body>
 </html>
+
