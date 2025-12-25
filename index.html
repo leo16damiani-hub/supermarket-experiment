@@ -17,109 +17,47 @@ body {
     margin: 0;
     font-family: 'Inter', Arial, sans-serif;
     background: #f4f4f5;
-    padding-top: 80px; /* prima 130px + barra, ora basta 120 */
+    padding-top: 80px;
     display: flex;
     justify-content: center;
-	
 }
 
-
-/* HEADER MODERNO -------------------------------------------------- */
+/* -----------------------------------------------------------
+   HEADER
+----------------------------------------------------------- */
 #header {
     position: fixed;
     top: 0; left: 0;
-    width: 100%; height: 80px;
-    background: linear-gradient(135deg, #0f172a, #1e293b);
-    color: #f9fafb;
-    box-shadow: 0 4px 18px rgba(15,23,42,0.45);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 32px;
+    width: 100%; height: 70px;
+    background: #ffffff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.10);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px;
     z-index: 1000;
-}
-
-.header-left {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
 }
 
 #header h2 {
     margin: 0;
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 700;
-    letter-spacing: -0.03em;
+    color: #222;
+    letter-spacing: -0.5px;
 }
 
-#headerInstruction {
-    font-size: 13px;
-    color: #e5e7eb;
-    opacity: 0.9;
-}
-
-/* lato destro: info + pulsante carrello */
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-	margin-right:5%;
-}
-
-#cartInfoMessage {
-    font-size: 13px;
-    padding: 6px 10px;
-    border-radius: 999px;
-    background: rgba(15,23,42,0.7);
-    border: 1px solid rgba(148,163,184,0.5);
-    color: #e5e7eb;
-}
-
-/* pulsante carrello stile pill */
-.cartButton {
-    background: #facc15;
-    color: #111827;
-    padding: 9px 18px;
-    border-radius: 999px;
-    font-size: 14px;
+#cartButton {
+    background: #111;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 16px;
     font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 6px;
+    display: flex; align-items: center; gap: 8px;
     cursor: pointer;
-    border: none;
-    box-shadow: 0 6px 14px rgba(250,204,21,0.55);
-    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    transition: 0.25s;
 }
 
-.cartButton:hover {
-    background: #eab308;
-    transform: translateY(-1px);
-    box-shadow: 0 10px 18px rgba(250,204,21,0.6);
+#cartButton:hover {
+    background: #333;
 }
-
-
-
-#categoryBar {
-    position: fixed;
-    top: 80px;
-    left: 0;
-    width: 100%;
-    background: linear-gradient(90deg, #f8fafc 0%, #f1f5f9 50%, #f8fafc 100%);
-    border-bottom: 1px solid rgba(148,163,184,0.2);
-    padding: 12px 20px;
-    z-index: 950;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    font-size: 14px;
-    backdrop-filter: blur(8px);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-
-}
-
-
 
 /* -----------------------------------------------------------
    PRODUCT GRID
@@ -127,9 +65,7 @@ body {
 #shelf {
     width: 90%;
     max-width: 1300px;
-        background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    background: #fff;
     padding: 20px;
     border-radius: 18px;
     box-shadow: 0 3px 12px rgba(0,0,0,0.08);
@@ -240,23 +176,16 @@ button {
     border: none;
 }
 
-#finishBtn {
-    background: #ffd700;  /* Gold Yellow */
-    color: #111;
-}
-#finishBtn:hover {
-    background: #e6c200;
-}
-
-#backBtn {
-    background: #111;
+#downloadBtn {
+    background: #1A7A1A;
     color: white;
 }
-#backBtn:hover {
-    background: #333;
+#downloadBtn:hover { background: #145c14; }
+
+#backBtn {
+    background: #ddd;
 }
-
-
+#backBtn:hover { background: #ccc; }
 
 /* -----------------------------------------------------------
    ANIMATION
@@ -266,34 +195,6 @@ button {
     to   {opacity: 1; transform: translateY(0);}
 }
 
-
-#instructionBar {
-    position: fixed;
-    top: 70px;                   /* subito sotto l’header */
-    left: 0;
-    width: 100%;
-    height: 50px;               /* altezza fissa */
-    background:#fff8c4;
-    border-bottom:1px solid #f0d97b;
-    font-size:16px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    z-index: 999;               /* sotto l’header, sopra i prodotti */
-    font-weight: 500;
-}
-
-
-#cartInfoMessage {
-
-    font-size: 14px;
-    background: #fff8c4;
-    border: 1px solid #f0d97b;
-    border-radius: 8px;
-
-    text-align: center;
-    color: #444;
-}
 
 
 /* 📌 RESPONSIVE LAYOUT */
@@ -417,297 +318,77 @@ button {
 
 
 
-/* -----------------------------------------------------------
-   MODAL SCREENS (INTRO, START, THANK YOU)
------------------------------------------------------------ */
-
-
-/* INTRO SCREEN - MODERNA */
-#introScreen {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: linear-gradient(135deg, #f0f4f8 0%, #e9ecf1 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
-    font-family: 'Inter', Arial, sans-serif;
-}
-
-.intro-modal {
-    background: white;
-    width: 480px;
-    padding: 50px 45px;
-    border-radius: 24px;
-    box-shadow: 0 8px 32px rgba(15,23,42,0.12);
-    border: 1px solid rgba(255,255,255,0.8);
-    text-align: center;
-    animation: fadeIn 0.5s ease-in-out;
-}
-
-.intro-logo-section {
-    margin-bottom: 20px;
-}
-
-.intro-logo {
-    height: 180px;
-    object-fit: contain;
-    margin-bottom: 8px;
-}
-
-.intro-subtitle {
-    margin: 0;
-    font-size: 12px;
-    color: #64748b;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-weight: 600;
-}
-
-.intro-modal h2 {
-    margin: 0 0 16px 0;
-    color: #0f172a;
-    font-size: 32px;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-}
-
-.intro-modal p {
-    color: #475569;
-    font-size: 15px;
-    line-height: 1.8;
-    margin-bottom: 32px;
-}
-
-.intro-btn {
-    width: 100%;
-    padding: 16px 0;
-    font-size: 16px;
-    font-weight: 600;
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-    color: white;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(15,23,42,0.25);
-}
-
-.intro-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(15,23,42,0.35);
-}
-
-
-
-
-
-
-
-/* START SCREEN - PARTICIPANT INFO */
-#startScreen {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: linear-gradient(135deg, #f0f4f8 0%, #e9ecf1 100%);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
-    font-family: 'Inter', Arial, sans-serif;
-}
-
-.start-modal {
-    background: white;
-    width: 480px;
-    padding: 50px 45px;
-    border-radius: 24px;
-    box-shadow: 0 8px 32px rgba(15,23,42,0.12);
-    border: 1px solid rgba(255,255,255,0.8);
-    text-align: center;
-    animation: fadeIn 0.5s ease-in-out;
-}
-
-.start-modal h2 {
-    margin: 0 0 12px 0;
-    color: #0f172a;
-    font-size: 28px;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-}
-
-.start-modal p {
-    color: #64748b;
-    font-size: 14px;
-    margin-bottom: 24px;
-}
-
-.form-group {
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-.form-label {
-    display: block;
-    margin-bottom: 8px;
-    font-size: 13px;
-    font-weight: 600;
-    color: #0f172a;
-}
-
-.form-input,
-.form-select {
-    width: 100%;
-    padding: 11px 13px;
-    border: 1.5px solid #cbd5e1;
-    border-radius: 10px;
-    font-size: 14px;
-    font-family: 'Inter', Arial, sans-serif;
-    background: #f8fafc;
-    color: #0f172a;
-    transition: all 0.2s ease;
-    box-sizing: border-box;
-}
-
-.form-input:focus,
-.form-select:focus {
-    outline: none;
-    border-color: #0f172a;
-    background: white;
-    box-shadow: 0 0 0 3px rgba(15,23,42,0.1);
-}
-
-.start-btn {
-    width: 100%;
-    padding: 16px 0;
-    margin-top: 24px;
-    font-size: 16px;
-    font-weight: 600;
-    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-    color: white;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(16,185,129,0.25);
-}
-
-.start-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(16,185,129,0.35);
-}
-
-
-
-
-
-
-
-
-
-#thankYouScreen {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: linear-gradient(to bottom, #f0f4f8, #e9ecf1);
-    z-index: 2000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-#thankYouScreen {
-    background: linear-gradient(to bottom, #f0f4f8, #e9ecf1);
-
-}
-
-.thank-you-modal {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(20px);
-    border-radius: 28px;
-    width: 480px;
-    padding: 50px 45px;
-    text-align: center;
-    box-shadow: 0 20px 60px rgba(15,23,42,0.3);
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
+@media (max-width: 700px) {
+    .intro-modal,
+    .start-modal,
+    .thank-you-modal {
+        width: 80%;
+        max-width: 380px;
+        padding: 28px 22px;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+
+    .intro-logo {
+        height: 80px;
     }
 }
 
-.thank-you-icon {
-    font-size: 64px;
-    margin-bottom: 16px;
-    animation: bounce 0.6s ease-in-out 0.3s both;
+
+
+
+@media (max-width: 700px) {
+    body {
+        padding-top: 20px;          /* meno spazio perché l’header non è più fixed */
+    }
+
+    #header {
+        position: static;           /* NON più fixed su mobile */
+        width: 100%;
+        height: auto;
+        padding: 12px 16px;
+        flex-direction: column;     /* titolo sopra, cart sotto */
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    #header h2 {
+        font-size: 20px;
+    }
+
+    #headerInstruction {
+        font-size: 12px;
+    }
+
+    .header-right {
+        align-self: stretch;
+        justify-content: space-between;
+    }
 }
 
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
-}
 
-.thank-you-modal h2 {
-    margin: 0 0 8px 0;
-    font-size: 32px;
-    font-weight: 700;
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    letter-spacing: -0.5px;
-}
+@media (max-width: 700px) {
+    #categoryBar {
+        padding: 10px 12px;
+        justify-content: center;
+    }
 
-.thank-you-modal p {
-    color: #475569;
-    font-size: 15px;
-    line-height: 1.8;
-    margin: 20px 0;
+    .catTab {
+        width: 80%;
+        max-width: 360px;
+        text-align: center;
+        font-size: 14px;
+    }
 }
-
-.thank-you-btn {
-    margin-top: 32px;
-    padding: 14px 28px;
-    font-size: 16px;
-    font-weight: 600;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-    color: white;
-    box-shadow: 0 8px 20px rgba(15,23,42,0.3);
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.thank-you-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 28px rgba(15,23,42,0.4);
-}
-
 
 </style>
 
 
-
-
-
-
-
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+
+
 
 
 </head>
@@ -721,64 +402,10 @@ button {
 
 <body>
 
-
-
-
-
-
-
-
 <div id="header">
-  <div class="header-left">
     <h2>Supermarket Experiment</h2>
-    <div id="headerInstruction">
-      🛒 When you finish your shopping, click the cart and then <b>Finish Shopping</b>.
-    </div>
-  </div>
-
-  <div class="header-right">
-    <div id="cartInfoMessage">
-      Cart: <span id="cartCount">0</span> items
-    </div>
-    <div class="cartButton" onclick="openCart()">
-      🛒 Cart
-    </div>
-  </div>
-</div>
-
-
-
-
-
-<!-- CATEGORY BAR -->
-<div id="categoryBar">
-    <button class="catTab active" onclick="setCategory('ALL')">All</button>
-    <button class="catTab" onclick="setCategory('BREAKFAST')">Breakfast</button>
-    <button class="catTab" onclick="setCategory('SNACKS')">Snacks & Sweets</button>
-    <button class="catTab" onclick="setCategory('DRINKS')">Drinks</button>
-    <button class="catTab" onclick="setCategory('FRESH')">Fresh & Dairy</button>
-    <button class="catTab" onclick="setCategory('HEALTHY')">Veg & Healthy</button>
-    <button class="catTab" onclick="setCategory('PANTRY')">Pantry</button>
-</div>
-
-
-
-
-
-<div id="introScreen">
-    <div class="intro-modal">
-        <div class="intro-logo-section">
-            <img src="img/Imagen1.png" alt="Politecnico di Milano" class="intro-logo">
-            <p class="intro-subtitle">Research Study</p>
-        </div>
-
-        <h2>Supermarket Experiment</h2>
-
-        <p>You will simulate a grocery shopping session. Select the products you would normally buy by clicking on them. When finished, open the basket (top right) and click <b>Finish Shopping</b>. Act as naturally as possible, as if you were in a real supermarket.</p>
-
-        <button class="intro-btn" onclick="showParticipantForm()">
-            Start Experiment →
-        </button>
+    <div onclick="openCart()" style="cursor:pointer; background:black; color:white; padding:10px 18px; margin-right:60px; border-radius:20px;">
+        🛒 <span id="cartCount">0</span>
     </div>
 </div>
 
@@ -786,77 +413,45 @@ button {
 
 
 
-<div id="startScreen">
-    <div class="start-modal">
-        <h2>Participant Information</h2>
-        <p>Please fill in the information below to begin the experiment.</p>
 
-        <div style="text-align: left; margin-bottom: 24px;">
-            <div class="form-group">
-                <label class="form-label">Age</label>
-                <input id="ageInput" type="number" min="10" max="100" class="form-input" placeholder="Enter your age">
-            </div>
 
-            <div class="form-group">
-                <label class="form-label">Gender</label>
-                <select id="genderInput" class="form-select">
-                    <option value="">Select...</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="Other">Other</option>
-                </select>
-            </div>
+<div id="introScreen" style="
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(135deg, #f2f4f7 0%, #ffffff 100%);
+    display: flex; justify-content: center; align-items: center;
+    z-index: 2000; font-family: 'Arial', sans-serif;
+">
+    <div style="
+        background: white;
+        width: 420px;
+        padding: 35px 40px;
+        border-radius: 20px;
+        box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+        text-align: center;
+        animation: fadeIn 0.5s ease-in-out;
+    ">
+        <h2 style="margin-bottom: 10px; color:#004aad; font-size: 26px;">
+            Supermarket Experiment
+        </h2>
 
-            <div class="form-group">
-                <label class="form-label">Nationality</label>
-                <select id="nationInput" class="form-select">
-                    <option value="">Select country...</option>
-                    <option value="Italy">Italy</option>
-                    <option value="France">France</option>
-                    <option value="Spain">Spain</option>
-                    <option value="Germany">Germany</option>
-                    <option value="Portugal">Portugal</option>
-                    <option value="Netherlands">Netherlands</option>
-                    <option value="Belgium">Belgium</option>
-                    <option value="Sweden">Sweden</option>
-                    <option value="Norway">Norway</option>
-                    <option value="Denmark">Denmark</option>
-                    <option value="Finland">Finland</option>
-                    <option value="Austria">Austria</option>
-                    <option value="Switzerland">Switzerland</option>
-                    <option value="Poland">Poland</option>
-                    <option value="Czech Republic">Czech Republic</option>
-                    <option value="Slovakia">Slovakia</option>
-                    <option value="Greece">Greece</option>
-                    <option value="Ireland">Ireland</option>
-                    <option value="Romania">Romania</option>
-                    <option value="Bulgaria">Bulgaria</option>
-                    <option value="Hungary">Hungary</option>
-                </select>
-            </div>
+        <p style="color:#444; font-size:15px; margin-bottom:25px;">
+            You will simulate a grocery shopping session. Select the products you would normally buy by clicking on them. When finished, open the basket (top right) and click <b>Finish Shopping</b>. Act as naturally as possible, as if you were in a real supermarket.
+        </p>
 
-            <div class="form-group">
-                <label class="form-label">Online Shopping Frequency</label>
-                <select id="onlineInput" class="form-select">
-                    <option value="Never">Never</option>
-                    <option value="Rarely">Rarely</option>
-                    <option value="Sometimes">Sometimes</option>
-                    <option value="Often">Often</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label class="form-label">Weekly Grocery Shopping</label>
-                <select id="freqInput" class="form-select">
-                    <option value="1-2">1–2 times</option>
-                    <option value="3-4">3–4 times</option>
-                    <option value="5+">5 or more</option>
-                </select>
-            </div>
-        </div>
-
-        <button class="start-btn" onclick="startExperiment()">
-            Start the Experiment ✓
+        <button onclick="showParticipantForm()" style="
+            width: 100%;
+            padding: 14px 0;
+            font-size: 18px;
+            background: #004aad;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.25s;
+        "
+        onmouseover="this.style.background='#00337a'"
+        onmouseleave="this.style.background='#004aad'">
+            Start
         </button>
     </div>
 </div>
@@ -866,6 +461,111 @@ button {
 
 
 
+
+
+
+
+<div id="startScreen" style="
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(135deg, #f2f4f7 0%, #ffffff 100%);
+    display: none; justify-content: center; align-items: center;
+    z-index: 2000; font-family: 'Arial', sans-serif;
+">
+    <div style="
+        background: white;
+        width: 420px;
+        padding: 35px 40px;
+        border-radius: 20px;
+        box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+        text-align: center;
+        animation: fadeIn 0.5s ease-in-out;
+    ">
+    
+        <h2 style="margin-bottom: 10px; color:#004aad; font-size: 26px;">
+			Partecipant information
+		</h2>
+
+        <p style="color:#666; margin-bottom: 25px; font-size: 15px;">
+            Please fill in the information below to begin the experiment.
+        </p>
+
+        <div style="text-align:left;">
+
+            <label class="label">Age</label>
+            <input id="ageInput" type="number" min="10" max="100" class="input">
+
+            <label class="label">Gender</label>
+            <select id="genderInput" class="input">
+                <option value="">Select...</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+
+     
+            <label class="label">Nationality</label>
+			<select id="nationInput" class="input">
+				<option value="">Select country...</option>
+				<option value="Italy">Italy</option>
+				<option value="France">France</option>
+				<option value="Spain">Spain</option>
+				<option value="Germany">Germany</option>
+				<option value="Portugal">Portugal</option>
+				<option value="Netherlands">Netherlands</option>
+				<option value="Belgium">Belgium</option>
+				<option value="Sweden">Sweden</option>
+				<option value="Norway">Norway</option>
+				<option value="Denmark">Denmark</option>
+				<option value="Finland">Finland</option>
+				<option value="Austria">Austria</option>
+				<option value="Switzerland">Switzerland</option>
+				<option value="Poland">Poland</option>
+				<option value="Czech Republic">Czech Republic</option>
+				<option value="Slovakia">Slovakia</option>
+				<option value="Greece">Greece</option>
+				<option value="Ireland">Ireland</option>
+				<option value="Romania">Romania</option>
+				<option value="Bulgaria">Bulgaria</option>
+				<option value="Hungary">Hungary</option>
+			</select>
+
+
+            <label class="label">Online Shopping Frequency</label>
+            <select id="onlineInput" class="input">
+                <option value="Never">Never</option>
+                <option value="Rarely">Rarely</option>
+                <option value="Sometimes">Sometimes</option>
+                <option value="Often">Often</option>
+            </select>
+
+            <label class="label">Weekly Grocery Shopping</label>
+            <select id="freqInput" class="input">
+                <option value="1-2">1–2 times</option>
+                <option value="3-4">3–4 times</option>
+                <option value="5+">5 or more</option>
+            </select>
+
+        </div>
+
+		<button onclick="startExperiment()" style="
+				width: 100%;
+				margin-top: 20px;
+				padding: 14px 0;
+				font-size: 18px;
+				background: #00b33c;
+				color: white;
+				border: none;
+				border-radius: 12px;
+				cursor: pointer;
+				transition: 0.25s;
+			"
+			onmouseover="this.style.background='#009933'"
+			onmouseleave="this.style.background='#00b33c'">
+			Start the Experiment
+		</button>
+
+    </div>
+</div>
 
 <style>
     .label {
@@ -896,30 +596,6 @@ button {
         from {opacity:0; transform:translateY(10px);}
         to   {opacity:1; transform:translateY(0);}
     }
-	
-	
-	
-	
-.catTab {
-    padding: 6px 14px;
-    border-radius: 999px;
-    border: 1px solid #e5e7eb;
-    background: #ffffff;
-    cursor: pointer;
-    font-size: 13px;
-    color: #4b5563;
-    transition: 0.15s ease;
-}
-.catTab:hover {
-    background: #f3f4f6;
-}
-.catTab.active {
-    background: #0f172a;
-    color: #f9fafb;
-    border-color: #0f172a;
-}
-
-
 </style>
 
 
@@ -938,19 +614,13 @@ button {
 
 
 
-<div id="shelf" style="margin-top: 110px;">
-    <h3>Loading products...</h3>
-</div>
-
-
+<div id="shelf"><h3>Loading products...</h3></div>
 
 <div id="cartPage">
     <h2 style="color:#004aad;">Selected products</h2>
     <div id="cartList"></div>
-    <button id="finishBtn" onclick="finishShopping()">Finish Shopping</button>
+    <button id="downloadBtn" onclick="downloadCSV()">Download CSV</button>
     <button id="backBtn" onclick="closeCart()">Back</button>
-		
-		
 </div>
 
 
@@ -981,6 +651,7 @@ button {
 </style>
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
 
 <script>
 
@@ -993,7 +664,7 @@ let hoverLog = [];
 let indecisionLog = [];
 let clickLog = [];
 let cart = [];
-
+let devSimulations = [];   // Qui salveremo tutte le simulazioni create
 
 
 // -----------------------------------------------------------------------------
@@ -1094,25 +765,10 @@ const products = [
 {name:"Kinder Cioccolato", price:1.89, category:"Chocolate", img:"img/front_it.165.200.jpg"},
 
 
+
+
     // ---- Add filler products up to 70 ----
 ];
-
-
-
-// --- MACRO-CATEGORIES FOR FILTERING ---
-const macroCategories = {
-    ALL: null, // no filter
-    BREAKFAST: ["Cereal", "Biscuits", "Bakery", "Sweet spreads"],
-    SNACKS: ["Snacks", "Chocolate", "Biscuits", "Sweet"],
-    DRINKS: ["Drinks"],
-    FRESH: ["Dairy", "Dairy-free", "Fresh Pasta", "Cold cuts", "Frozen"],
-    HEALTHY: ["Vegan", "Fruit", "Vegetables", "Dry", "Canned"],
-    PANTRY: ["Pasta", "Sauce", "Bread", "Spreads", "Misc"]
-};
-
-let currentMacroCategory = "ALL";
-let productsFiltered = products; // inizialmente tutti
-
 
 // Add placeholder items until we reach 70
 while (products.length < 70) {
@@ -1164,7 +820,6 @@ function startExperiment() {
     if (userAge === "" || userGender === "" || userNation === "") {
         alert("Please complete all required fields.");
         return;
-		
     }
 
     // Hide the start screen
@@ -1178,29 +833,6 @@ function startExperiment() {
 
 
 
-function setCategory(cat) {
-    currentMacroCategory = cat;
-
-    // aggiorna stato visuale dei tab
-    const tabs = document.querySelectorAll('.catTab');
-    tabs.forEach(t => t.classList.remove('active'));
-    tabs.forEach(t => {
-        if (t.getAttribute('onclick') && t.getAttribute('onclick').includes("'" + cat + "'")) {
-            t.classList.add('active');
-        }
-    });
-
-    // filtro prodotti
-    const cats = macroCategories[cat];
-    if (!cats) {
-        productsFiltered = products;
-    } else {
-        productsFiltered = products.filter(p => cats.includes(p.category));
-    }
-
-    buildShelf();
-}
-
 // -----------------------------------------------------------------------------
 // BUILD SHELF
 // -----------------------------------------------------------------------------
@@ -1208,33 +840,35 @@ function buildShelf() {
     const shelf = document.getElementById("shelf");
     shelf.innerHTML = "";
 
+    // --- NUOVA GRIGLIA PERFETTA: 5 COLONNE ---
     let grid = document.createElement("div");
     grid.className = "productGrid";
     shelf.appendChild(grid);
 
     let hoverStart = 0;
 
-    // usa productsFiltered invece di products
-    productsFiltered.forEach((p) => {
+    products.forEach((p) => {
 
         let slot = document.createElement("div");
         slot.className = "product";
 
-        // immagine
+        // --- immagine ---
         let img = document.createElement("img");
         img.src = p.img || "https://via.placeholder.com/120";
 
-        // nome
+        // --- nome ---
         let name = document.createElement("div");
         name.className = "name";
         name.textContent = p.name;
 
-        // prezzo
+        // --- prezzo ---
         let price = document.createElement("div");
         price.className = "price";
         price.textContent = "€" + p.price;
 
-        // HOVER
+        // =====================================================
+        // EVENTI MOUSEOVER (slot intero)
+        // =====================================================
         slot.onmouseover = () => {
             hoverStart = Date.now();
             hoverLog.push({
@@ -1253,7 +887,9 @@ function buildShelf() {
             }
         };
 
-        // CLICK
+        // =====================================================
+        // CLICK SU TUTTO IL BOX PRODOTTO
+        // =====================================================
         slot.onclick = () => {
             clickLog.push({
                 product: p.name,
@@ -1277,8 +913,8 @@ function buildShelf() {
 }
 
 
-// buildShelf();
-setCategory('ALL');
+buildShelf();
+
 // -----------------------------------------------------------------------------
 // CART
 // -----------------------------------------------------------------------------
@@ -1298,75 +934,224 @@ function closeCart() {
     document.getElementById("shelf").style.display = "block";
 }
 
+// -----------------------------------------------------------------------------
+// CSV EXPORT
+// -----------------------------------------------------------------------------
+function downloadCSV() {
 
 
+	let totalTime = Date.now() - experimentStart;
 
-function finishShopping() {
-    let totalTime = Date.now() - experimentStart;
+	let csv = "USER_ID,AGE,GENDER,NATION,ONLINE_FREQ,SHOP_FREQ,TOTAL_TIME_MS\n";
+	csv += `${userID},${userAge},${userGender},${userNation},${userOnline},${userFreq},${totalTime}\n\n`;
 
-    let data = {
-        userID: userID,
-        age: userAge,
-        gender: userGender,
-        nation: userNation,
-        onlineFreq: userOnline,
-        shopFreq: userFreq,
-        totalTime: totalTime,
-        clickLog: clickLog,
-        hoverLog: hoverLog,
-        indecisionLog: indecisionLog
-    };
-	
-	document.getElementById("finishBtn").disabled = true;
-	document.getElementById("finishBtn").innerText = "Submitting...";
+    csv += "PRODUCT,PRICE,CATEGORY,CLICK_TIME_MS\n";
+    clickLog.forEach(e => csv += `${e.product},${e.price},${e.category},${e.click_ms}\n`);
 
+    csv += "\nHOVER_LOG\nPRODUCT,HOVER_TIME_MS\n";
+    hoverLog.forEach(h => csv += `${h.product},${h.hover_ms}\n`);
 
-    fetch("https://script.google.com/macros/s/AKfycbynE_0AMronN-Zdrt3PAknFdz--bZo5idPZRy71q1FC4KrUSx4YZ-1oQHWUXC3TQ5NaWg/exec", {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-    }).then(() => {
-        alert("Thank you! Your response has been recorded.");
-        location.reload();
-    }).catch(err => {
-        alert("⚠️ Error submitting data. Please try again.");
-        console.log(err);
-    });
-	
-	
+    csv += "\nINDECISION_LOG\nPRODUCT,INDECISION_MS\n";
+    indecisionLog.forEach(i => csv += `${i.product},${i.indecision_ms}\n`);
 
-		
+    const blob = new Blob([csv], { type:"text/plain" });  
+    const url = URL.createObjectURL(blob);
 
-	
-		
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `experiment_${userID}.log`;   // <<<<<< QUI CAMBIA
+    a.click();
 }
 
+
+
+
+
+
+/* =====================================================
+   DEVELOPER SECRET START (CTRL + D)
+   ===================================================== */
+document.addEventListener("keydown", (e) => {
+    if (e.ctrlKey && e.key.toLowerCase() === "d") {
+        e.preventDefault();
+
+        // Nascondi eventuali schermate iniziali
+        if (document.getElementById("introScreen"))
+            document.getElementById("introScreen").style.display = "none";
+        if (document.getElementById("startScreen"))
+            document.getElementById("startScreen").style.display = "none";
+
+        // Mostra scaffale + dev tools
+        buildShelf();
+        document.getElementById("devPanel").style.display = "block";
+
+        showToast("Developer Mode Enabled ✓");
+        console.log("Developer mode ON");
+    }
+});
+
+
+
+
+
+/* ============================================================
+   PROFILI UTENTE
+============================================================ */
+
+const profileSettings = {
+    impulsivo: { picks: [8,15], hover: [100,300], indecision: 0.05, category: "ALL" },
+    indeciso:  { picks: [5,10], hover: [1500,4000], indecision: 0.45, category: "ALL" },
+    razionale:{ picks: [4,7], hover: [400,900], indecision: 0.10, category: "ALL" },
+    veloce:   { picks: [3,6], hover: [50,150], indecision: 0.02, category: "ALL" },
+    sinistro: { picks: [5,10], hover: [300,900], indecision: 0.15, bias:"left", category:"ALL"},
+    destro:   { picks: [5,10], hover: [300,900], indecision: 0.15, bias:"right", category:"ALL"},
+    goloso:   { picks: [6,12], hover: [300,700], indecision: 0.12, category:["Biscuits","Chocolate","Snacks"]},
+    sano:     { picks: [6,12], hover: [200,700], indecision: 0.12, category:["Vegan","Fruit","Vegetables","Dairy-free"]},
+    price:    { picks: [7,14], hover: [400,1200], indecision: 0.15, priceMax:2 },
+    random:   { picks: [5,10], hover: [100,2000], indecision: 0.20, category:"ALL" }
+};
+
+
+/* ============================================================
+   GENERA UNA SINGOLA SIMULAZIONE
+============================================================ */
+
+function generateSimulationForProfile(profileName) {
+
+    let conf = profileSettings[profileName];
+    let simClick = [], simHover = [], simIndecision = [], simCart = [];
+
+    let nPicks = conf.picks[0] + Math.floor(Math.random() * (conf.picks[1] - conf.picks[0]));
+
+    for (let i = 0; i < nPicks; i++) {
+
+        let filtered = products;
+
+        if (conf.category !== "ALL") {
+            filtered = filtered.filter(p => conf.category.includes(p.category));
+        }
+
+        if (conf.priceMax) {
+            filtered = filtered.filter(p => p.price <= conf.priceMax);
+        }
+
+        if (conf.bias === "left") {
+            filtered = filtered.slice(0, filtered.length/2);
+        }
+        if (conf.bias === "right") {
+            filtered = filtered.slice(filtered.length/2);
+        }
+
+        let p = filtered[Math.floor(Math.random()*filtered.length)];
+
+        // click
+        simClick.push({
+            product:p.name,
+            price:p.price,
+            category:p.category,
+            click_ms: Math.floor(Math.random()*8000)
+        });
+
+        // hover
+        simHover.push({
+            product:p.name,
+            hover_ms: conf.hover[0] + Math.floor(Math.random() * (conf.hover[1]-conf.hover[0]))
+        });
+
+        // indecisioni
+        if (Math.random() < conf.indecision) {
+            simIndecision.push({
+                product:p.name,
+                indecision_ms: 1500 + Math.floor(Math.random()*3000)
+            });
+        }
+
+        simCart.push(p);
+    }
+
+    return {simClick, simHover, simIndecision, simCart};
+}
+
+
+/* ============================================================
+   ESEGUI MULTI-PROFILO
+============================================================ */
+
+function runDeveloperSim() {
+
+    const n = parseInt(document.getElementById("simCount").value);
+    const chosenProfiles = [...document.querySelectorAll(".simProfile:checked")].map(c=>c.value);
+
+    if (chosenProfiles.length === 0) {
+        alert("Select at least one profile.");
+        return;
+    }
+
+    devSimulations = [];
+
+    for (let p of chosenProfiles) {
+        for (let i=0; i<n; i++) {
+            let sim = generateSimulationForProfile(p);
+            devSimulations.push({profile:p, ...sim});
+        }
+    }
+
+    showToast(`Generated ${n} simulations × ${chosenProfiles.length} profiles ✔`);
+}
+
+
+/* ============================================================
+   DOWNLOAD ZIP
+============================================================ */
+function downloadAllSim() {
+
+    if (devSimulations.length === 0) {
+        alert("No simulations to download. Run first.");
+        return;
+    }
+
+    let zip = new JSZip();
+
+    devSimulations.forEach((sim, index) => {
+
+        let csv = "";
+
+        csv += `PROFILE,${sim.profile}\n\n`;
+
+        csv += "PRODUCT,PRICE,CATEGORY,CLICK_TIME_MS\n";
+        sim.simClick.forEach(e => {
+            csv += `${e.product},${e.price},${e.category},${e.click_ms}\n`;
+        });
+
+        csv += "\nHOVER_LOG\nPRODUCT,HOVER_TIME_MS\n";
+        sim.simHover.forEach(h => {
+            csv += `${h.product},${h.hover_ms}\n`;
+        });
+
+        csv += "\nINDECISION_LOG\nPRODUCT,INDECISION_MS\n";
+        sim.simIndecision.forEach(i => {
+            csv += `${i.product},${i.indecision_ms}\n`;
+        });
+
+        const filename = `${sim.profile}_${String(index + 1).padStart(2, "0")}.csv`;
+
+        // **FIX IMPORTANTE**
+        zip.file(filename, new Blob([csv], { type: "text/csv;charset=utf-8" }));
+    });
+
+    zip.generateAsync({ type: "blob" }).then(content => {
+        let a = document.createElement("a");
+        a.href = URL.createObjectURL(content);
+        a.download = "simulations.zip";
+        a.click();
+    });
+}
 
 
 function showParticipantForm() {
     document.getElementById("introScreen").style.display = "none";
     document.getElementById("startScreen").style.display = "flex";
-}
-
-
-
-function resetToHome() {
-    // pulisci carrello e log
-    cart = [];
-    clickLog = [];
-    hoverLog = [];
-    indecisionLog = [];
-    document.getElementById("cartCount").innerText = "0";
-
-    // mostra schermata iniziale, nasconde il resto
-    document.getElementById("introScreen").style.display = "flex";
-    document.getElementById("startScreen").style.display = "none";
-    document.getElementById("shelf").style.display = "block";
-    document.getElementById("cartPage").style.display = "none";
-    document.getElementById("thankYouScreen").style.display = "none";
-
-    experimentStart = Date.now();
+	
 }
 
 
@@ -1376,19 +1161,54 @@ function resetToHome() {
 
 
 
-<div id="thankYouScreen">
-    <div class="thank-you-modal">
-        <div class="thank-you-icon">🎉</div>
-        <h2>Thank you for participating!</h2>
-        <p>Your responses have been recorded successfully.</p>
-        <p style="font-size: 13px; color: #94a3b8;">You may now close this page.</p>
-        <button class="thank-you-btn" onclick="resetToHome()">
-            🏠 Back to Home
-        </button>
-    </div>
+<div id="devPanel" style="
+    display:none;
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#111;
+    color:white;
+    padding:20px;
+    border-radius:16px;
+    width:290px;
+    box-shadow:0 4px 14px rgba(0,0,0,0.3);
+    z-index:3000;
+">
+    <h3 style="margin-top:0; font-size:18px;">Developer Tools</h3>
+
+<label>Number of simulations per profile:</label>
+<input id="simCount" type="number" min="1" max="200" value="1" 
+       style="width:100%; padding:6px; border-radius:8px; border:none; margin:6px 0 12px;">
+
+<label style="font-weight:bold;">Select profiles:</label>
+
+<div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; font-size:14px; margin-bottom:12px;">
+    <label><input type="checkbox" class="simProfile" value="impulsivo"> Impulsivo</label>
+    <label><input type="checkbox" class="simProfile" value="indeciso"> Indeciso</label>
+    <label><input type="checkbox" class="simProfile" value="razionale"> Razionale</label>
+    <label><input type="checkbox" class="simProfile" value="veloce"> Veloce</label>
+    <label><input type="checkbox" class="simProfile" value="sinistro"> Sinistro</label>
+    <label><input type="checkbox" class="simProfile" value="destro"> Destro</label>
+    <label><input type="checkbox" class="simProfile" value="goloso"> Goloso</label>
+    <label><input type="checkbox" class="simProfile" value="sano"> Sano</label>
+    <label><input type="checkbox" class="simProfile" value="price"> Price Sensitive</label>
+    <label><input type="checkbox" class="simProfile" value="random"> Random</label>
 </div>
 
+<button onclick="runDeveloperSim()" style="
+    width:100%; padding:10px; background:#0a84ff; color:white;
+    border:none; border-radius:10px; font-size:15px; cursor:pointer;">
+    ▶ Run Simulation
+</button>
 
+<button onclick="downloadAllSim()" style="
+    width:100%; padding:10px; background:#ffc400; color:black;
+    border:none; border-radius:10px; font-size:15px; cursor:pointer; margin-top:10px;">
+    ⬇ Download CSV (All Sims)
+</button>
+
+
+</div>
 
 
 
