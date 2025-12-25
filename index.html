@@ -775,15 +775,15 @@ button {
 }
 
 
-
 /* 🟢 Smartphone (max-width: 700px) */
 @media (max-width: 700px) {
+    /* niente layout flex che spinge tutto a destra */
     body {
-        padding-top: 20px;          /* header non più fisso → meno spazio */
-        justify-content: flex-start;
+        display: block;
+        padding-top: 20px;
     }
 
-    /* HEADER: NON fisso su mobile, più leggibile */
+    /* HEADER: non fisso, più compatto */
     #header {
         position: static;
         width: 100%;
@@ -822,7 +822,12 @@ button {
         padding: 5px 8px;
     }
 
-    /* CATEGORY BAR centrata e più stretta */
+    /* NASCONDI la barra gialla/colonna sinistra */
+    #instructionBar {
+        display: none;
+    }
+
+    /* CATEGORY BAR centrata, pulsanti più stretti */
     #categoryBar {
         position: static;
         width: 100%;
@@ -839,6 +844,12 @@ button {
     }
 
     /* GRID PRODOTTI */
+    #shelf {
+        width: 95%;
+        padding: 15px;
+        margin: 0 auto;
+    }
+
     .productGrid {
         grid-template-columns: repeat(2, 1fr);
         gap: 12px;
@@ -856,12 +867,6 @@ button {
     .name,
     .price {
         font-size: 12px;
-    }
-
-    #shelf {
-        width: 95%;
-        padding: 15px;
-        margin-top: 10px;
     }
 
     #cartPage {
@@ -887,7 +892,7 @@ button {
         padding: 10px 14px;
     }
 
-    /* INTRO / START / THANK YOU modali all’80% */
+    /* MODALI all’80% larghezza */
     .intro-modal,
     .start-modal,
     .thank-you-modal {
@@ -900,6 +905,7 @@ button {
         height: 80px;
     }
 }
+
 
 
 </style>
