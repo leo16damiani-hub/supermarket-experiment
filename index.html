@@ -17,48 +17,109 @@ body {
     margin: 0;
     font-family: 'Inter', Arial, sans-serif;
     background: #f4f4f5;
-    padding-top: 130px;  /* << NUOVO */
+    padding-top: 80px; /* prima 130px + barra, ora basta 120 */
     display: flex;
     justify-content: center;
+	
 }
 
 
-/* -----------------------------------------------------------
-   HEADER
------------------------------------------------------------ */
+/* HEADER MODERNO -------------------------------------------------- */
 #header {
     position: fixed;
     top: 0; left: 0;
-    width: 100%; height: 70px;
-    background: #ffffff;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.10);
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 40px;
+    width: 100%; height: 80px;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: #f9fafb;
+    box-shadow: 0 4px 18px rgba(15,23,42,0.45);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
     z-index: 1000;
+}
+
+.header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
 #header h2 {
     margin: 0;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 700;
-    color: #222;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.03em;
 }
 
-#cartButton {
-    background: #111;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 16px;
+#headerInstruction {
+    font-size: 13px;
+    color: #e5e7eb;
+    opacity: 0.9;
+}
+
+/* lato destro: info + pulsante carrello */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+	margin-right:5%;
+}
+
+#cartInfoMessage {
+    font-size: 13px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: rgba(15,23,42,0.7);
+    border: 1px solid rgba(148,163,184,0.5);
+    color: #e5e7eb;
+}
+
+/* pulsante carrello stile pill */
+.cartButton {
+    background: #facc15;
+    color: #111827;
+    padding: 9px 18px;
+    border-radius: 999px;
+    font-size: 14px;
     font-weight: 600;
-    display: flex; align-items: center; gap: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
     cursor: pointer;
-    transition: 0.25s;
+    border: none;
+    box-shadow: 0 6px 14px rgba(250,204,21,0.55);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
 }
 
-#cartButton:hover {
-    background: #333;
+.cartButton:hover {
+    background: #eab308;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 18px rgba(250,204,21,0.6);
 }
+
+
+
+#categoryBar {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(90deg, #f8fafc 0%, #f1f5f9 50%, #f8fafc 100%);
+    border-bottom: 1px solid rgba(148,163,184,0.2);
+    padding: 12px 20px;
+    z-index: 950;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    font-size: 14px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+
+}
+
+
 
 /* -----------------------------------------------------------
    PRODUCT GRID
@@ -66,7 +127,9 @@ body {
 #shelf {
     width: 90%;
     max-width: 1300px;
-    background: #fff;
+        background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     padding: 20px;
     border-radius: 18px;
     box-shadow: 0 3px 12px rgba(0,0,0,0.08);
@@ -232,6 +295,7 @@ button {
     color: #444;
 }
 
+
 /* 📌 RESPONSIVE LAYOUT */
 
 /* 🔵 Tablet (max-width: 1024px) */
@@ -352,7 +416,288 @@ button {
 }
 
 
-	
+
+/* -----------------------------------------------------------
+   MODAL SCREENS (INTRO, START, THANK YOU)
+----------------------------------------------------------- */
+
+
+/* INTRO SCREEN - MODERNA */
+#introScreen {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, #f0f4f8 0%, #e9ecf1 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    font-family: 'Inter', Arial, sans-serif;
+}
+
+.intro-modal {
+    background: white;
+    width: 480px;
+    padding: 50px 45px;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(15,23,42,0.12);
+    border: 1px solid rgba(255,255,255,0.8);
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.intro-logo-section {
+    margin-bottom: 20px;
+}
+
+.intro-logo {
+    height: 180px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+
+.intro-subtitle {
+    margin: 0;
+    font-size: 12px;
+    color: #64748b;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.intro-modal h2 {
+    margin: 0 0 16px 0;
+    color: #0f172a;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.intro-modal p {
+    color: #475569;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 32px;
+}
+
+.intro-btn {
+    width: 100%;
+    padding: 16px 0;
+    font-size: 16px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(15,23,42,0.25);
+}
+
+.intro-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(15,23,42,0.35);
+}
+
+
+
+
+
+
+
+/* START SCREEN - PARTICIPANT INFO */
+#startScreen {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, #f0f4f8 0%, #e9ecf1 100%);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    font-family: 'Inter', Arial, sans-serif;
+}
+
+.start-modal {
+    background: white;
+    width: 480px;
+    padding: 50px 45px;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(15,23,42,0.12);
+    border: 1px solid rgba(255,255,255,0.8);
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.start-modal h2 {
+    margin: 0 0 12px 0;
+    color: #0f172a;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.start-modal p {
+    color: #64748b;
+    font-size: 14px;
+    margin-bottom: 24px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.form-input,
+.form-select {
+    width: 100%;
+    padding: 11px 13px;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 14px;
+    font-family: 'Inter', Arial, sans-serif;
+    background: #f8fafc;
+    color: #0f172a;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.form-input:focus,
+.form-select:focus {
+    outline: none;
+    border-color: #0f172a;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(15,23,42,0.1);
+}
+
+.start-btn {
+    width: 100%;
+    padding: 16px 0;
+    margin-top: 24px;
+    font-size: 16px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(16,185,129,0.25);
+}
+
+.start-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(16,185,129,0.35);
+}
+
+
+
+
+
+
+
+
+
+#thankYouScreen {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(to bottom, #f0f4f8, #e9ecf1);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#thankYouScreen {
+    background: linear-gradient(to bottom, #f0f4f8, #e9ecf1);
+
+}
+
+.thank-you-modal {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 28px;
+    width: 480px;
+    padding: 50px 45px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(15,23,42,0.3);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.thank-you-icon {
+    font-size: 64px;
+    margin-bottom: 16px;
+    animation: bounce 0.6s ease-in-out 0.3s both;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.thank-you-modal h2 {
+    margin: 0 0 8px 0;
+    font-size: 32px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.5px;
+}
+
+.thank-you-modal p {
+    color: #475569;
+    font-size: 15px;
+    line-height: 1.8;
+    margin: 20px 0;
+}
+
+.thank-you-btn {
+    margin-top: 32px;
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: white;
+    box-shadow: 0 8px 20px rgba(15,23,42,0.3);
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.thank-you-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(15,23,42,0.4);
+}
+
+
 </style>
 
 
@@ -361,8 +706,8 @@ button {
 
 
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
 </head>
@@ -384,64 +729,55 @@ button {
 
 
 <div id="header">
+  <div class="header-left">
     <h2>Supermarket Experiment</h2>
-	
-
-    <div onclick="openCart()" style="cursor:pointer; background:black; color:white; padding:10px 18px; margin-right:60px; border-radius:20px;">
-        🛒 <span id="cartCount">0</span>
+    <div id="headerInstruction">
+      🛒 When you finish your shopping, click the cart and then <b>Finish Shopping</b>.
     </div>
-	
-	
+  </div>
+
+  <div class="header-right">
+    <div id="cartInfoMessage">
+      Cart: <span id="cartCount">0</span> items
+    </div>
+    <div class="cartButton" onclick="openCart()">
+      🛒 Cart
+    </div>
+  </div>
 </div>
 
 
-<div id="instructionBar">
-    🛒 When you finish your shopping, click the cart (top right) and press &nbsp;&nbsp;&nbsp;  <b>Finish Shopping</b>.
+
+
+
+<!-- CATEGORY BAR -->
+<div id="categoryBar">
+    <button class="catTab active" onclick="setCategory('ALL')">All</button>
+    <button class="catTab" onclick="setCategory('BREAKFAST')">Breakfast</button>
+    <button class="catTab" onclick="setCategory('SNACKS')">Snacks & Sweets</button>
+    <button class="catTab" onclick="setCategory('DRINKS')">Drinks</button>
+    <button class="catTab" onclick="setCategory('FRESH')">Fresh & Dairy</button>
+    <button class="catTab" onclick="setCategory('HEALTHY')">Veg & Healthy</button>
+    <button class="catTab" onclick="setCategory('PANTRY')">Pantry</button>
 </div>
 
 
 
 
 
+<div id="introScreen">
+    <div class="intro-modal">
+        <div class="intro-logo-section">
+            <img src="img/Imagen1.png" alt="Politecnico di Milano" class="intro-logo">
+            <p class="intro-subtitle">Research Study</p>
+        </div>
 
+        <h2>Supermarket Experiment</h2>
 
-<div id="introScreen" style="
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(135deg, #f2f4f7 0%, #ffffff 100%);
-    display: flex; justify-content: center; align-items: center;
-    z-index: 2000; font-family: 'Arial', sans-serif;
-">
-    <div style="
-        background: white;
-        width: 420px;
-        padding: 35px 40px;
-        border-radius: 20px;
-        box-shadow: 0 6px 25px rgba(0,0,0,0.15);
-        text-align: center;
-        animation: fadeIn 0.5s ease-in-out;
-    ">
-        <h2 style="margin-bottom: 10px; color:#004aad; font-size: 26px;">
-            Supermarket Experiment
-        </h2>
+        <p>You will simulate a grocery shopping session. Select the products you would normally buy by clicking on them. When finished, open the basket (top right) and click <b>Finish Shopping</b>. Act as naturally as possible, as if you were in a real supermarket.</p>
 
-        <p style="color:#444; font-size:15px; margin-bottom:25px;">
-            You will simulate a grocery shopping session. Select the products you would normally buy by clicking on them. When finished, open the basket (top right) and click <b>Finish Shopping</b>. Act as naturally as possible, as if you were in a real supermarket.
-        </p>
-
-        <button onclick="showParticipantForm()" style="
-            width: 100%;
-            padding: 14px 0;
-            font-size: 18px;
-            background: #004aad;
-            color: white;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: 0.25s;
-        "
-        onmouseover="this.style.background='#00337a'"
-        onmouseleave="this.style.background='#004aad'">
-            Start
+        <button class="intro-btn" onclick="showParticipantForm()">
+            Start Experiment →
         </button>
     </div>
 </div>
@@ -449,108 +785,87 @@ button {
 
 
 
-<div id="startScreen" style="
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(135deg, #f2f4f7 0%, #ffffff 100%);
-    display: none; justify-content: center; align-items: center;
-    z-index: 2000; font-family: 'Arial', sans-serif;
-">
-    <div style="
-        background: white;
-        width: 420px;
-        padding: 35px 40px;
-        border-radius: 20px;
-        box-shadow: 0 6px 25px rgba(0,0,0,0.15);
-        text-align: center;
-        animation: fadeIn 0.5s ease-in-out;
-    ">
-		
 
-        <h2 style="margin-bottom: 10px; color:#004aad; font-size: 26px;">
-			Partecipant information
-		</h2>
+<div id="startScreen">
+    <div class="start-modal">
+        <h2>Participant Information</h2>
+        <p>Please fill in the information below to begin the experiment.</p>
 
-        <p style="color:#666; margin-bottom: 25px; font-size: 15px;">
-            Please fill in the information below to begin the experiment.
-        </p>
+        <div style="text-align: left; margin-bottom: 24px;">
+            <div class="form-group">
+                <label class="form-label">Age</label>
+                <input id="ageInput" type="number" min="10" max="100" class="form-input" placeholder="Enter your age">
+            </div>
 
-        <div style="text-align:left;">
+            <div class="form-group">
+                <label class="form-label">Gender</label>
+                <select id="genderInput" class="form-select">
+                    <option value="">Select...</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
 
-            <label class="label">Age</label>
-            <input id="ageInput" type="number" min="10" max="100" class="input">
+            <div class="form-group">
+                <label class="form-label">Nationality</label>
+                <select id="nationInput" class="form-select">
+                    <option value="">Select country...</option>
+                    <option value="Italy">Italy</option>
+                    <option value="France">France</option>
+                    <option value="Spain">Spain</option>
+                    <option value="Germany">Germany</option>
+                    <option value="Portugal">Portugal</option>
+                    <option value="Netherlands">Netherlands</option>
+                    <option value="Belgium">Belgium</option>
+                    <option value="Sweden">Sweden</option>
+                    <option value="Norway">Norway</option>
+                    <option value="Denmark">Denmark</option>
+                    <option value="Finland">Finland</option>
+                    <option value="Austria">Austria</option>
+                    <option value="Switzerland">Switzerland</option>
+                    <option value="Poland">Poland</option>
+                    <option value="Czech Republic">Czech Republic</option>
+                    <option value="Slovakia">Slovakia</option>
+                    <option value="Greece">Greece</option>
+                    <option value="Ireland">Ireland</option>
+                    <option value="Romania">Romania</option>
+                    <option value="Bulgaria">Bulgaria</option>
+                    <option value="Hungary">Hungary</option>
+                </select>
+            </div>
 
-            <label class="label">Gender</label>
-            <select id="genderInput" class="input">
-                <option value="">Select...</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Other">Other</option>
-            </select>
+            <div class="form-group">
+                <label class="form-label">Online Shopping Frequency</label>
+                <select id="onlineInput" class="form-select">
+                    <option value="Never">Never</option>
+                    <option value="Rarely">Rarely</option>
+                    <option value="Sometimes">Sometimes</option>
+                    <option value="Often">Often</option>
+                </select>
+            </div>
 
-     
-            <label class="label">Nationality</label>
-			<select id="nationInput" class="input">
-				<option value="">Select country...</option>
-				<option value="Italy">Italy</option>
-				<option value="France">France</option>
-				<option value="Spain">Spain</option>
-				<option value="Germany">Germany</option>
-				<option value="Portugal">Portugal</option>
-				<option value="Netherlands">Netherlands</option>
-				<option value="Belgium">Belgium</option>
-				<option value="Sweden">Sweden</option>
-				<option value="Norway">Norway</option>
-				<option value="Denmark">Denmark</option>
-				<option value="Finland">Finland</option>
-				<option value="Austria">Austria</option>
-				<option value="Switzerland">Switzerland</option>
-				<option value="Poland">Poland</option>
-				<option value="Czech Republic">Czech Republic</option>
-				<option value="Slovakia">Slovakia</option>
-				<option value="Greece">Greece</option>
-				<option value="Ireland">Ireland</option>
-				<option value="Romania">Romania</option>
-				<option value="Bulgaria">Bulgaria</option>
-				<option value="Hungary">Hungary</option>
-			</select>
-
-
-            <label class="label">Online Shopping Frequency</label>
-            <select id="onlineInput" class="input">
-                <option value="Never">Never</option>
-                <option value="Rarely">Rarely</option>
-                <option value="Sometimes">Sometimes</option>
-                <option value="Often">Often</option>
-            </select>
-
-            <label class="label">Weekly Grocery Shopping</label>
-            <select id="freqInput" class="input">
-                <option value="1-2">1–2 times</option>
-                <option value="3-4">3–4 times</option>
-                <option value="5+">5 or more</option>
-            </select>
-
+            <div class="form-group">
+                <label class="form-label">Weekly Grocery Shopping</label>
+                <select id="freqInput" class="form-select">
+                    <option value="1-2">1–2 times</option>
+                    <option value="3-4">3–4 times</option>
+                    <option value="5+">5 or more</option>
+                </select>
+            </div>
         </div>
 
-		<button onclick="startExperiment()" style="
-				width: 100%;
-				margin-top: 20px;
-				padding: 14px 0;
-				font-size: 18px;
-				background: #00b33c;
-				color: white;
-				border: none;
-				border-radius: 12px;
-				cursor: pointer;
-				transition: 0.25s;
-			"
-			onmouseover="this.style.background='#009933'"
-			onmouseleave="this.style.background='#00b33c'">
-			Start the Experiment
-		</button>
-
+        <button class="start-btn" onclick="startExperiment()">
+            Start the Experiment ✓
+        </button>
     </div>
 </div>
+
+
+
+
+
+
 
 <style>
     .label {
@@ -581,6 +896,30 @@ button {
         from {opacity:0; transform:translateY(10px);}
         to   {opacity:1; transform:translateY(0);}
     }
+	
+	
+	
+	
+.catTab {
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid #e5e7eb;
+    background: #ffffff;
+    cursor: pointer;
+    font-size: 13px;
+    color: #4b5563;
+    transition: 0.15s ease;
+}
+.catTab:hover {
+    background: #f3f4f6;
+}
+.catTab.active {
+    background: #0f172a;
+    color: #f9fafb;
+    border-color: #0f172a;
+}
+
+
 </style>
 
 
@@ -599,10 +938,10 @@ button {
 
 
 
-<div id="shelf">
-    
+<div id="shelf" style="margin-top: 110px;">
     <h3>Loading products...</h3>
 </div>
+
 
 
 <div id="cartPage">
@@ -755,10 +1094,25 @@ const products = [
 {name:"Kinder Cioccolato", price:1.89, category:"Chocolate", img:"img/front_it.165.200.jpg"},
 
 
-
-
     // ---- Add filler products up to 70 ----
 ];
+
+
+
+// --- MACRO-CATEGORIES FOR FILTERING ---
+const macroCategories = {
+    ALL: null, // no filter
+    BREAKFAST: ["Cereal", "Biscuits", "Bakery", "Sweet spreads"],
+    SNACKS: ["Snacks", "Chocolate", "Biscuits", "Sweet"],
+    DRINKS: ["Drinks"],
+    FRESH: ["Dairy", "Dairy-free", "Fresh Pasta", "Cold cuts", "Frozen"],
+    HEALTHY: ["Vegan", "Fruit", "Vegetables", "Dry", "Canned"],
+    PANTRY: ["Pasta", "Sauce", "Bread", "Spreads", "Misc"]
+};
+
+let currentMacroCategory = "ALL";
+let productsFiltered = products; // inizialmente tutti
+
 
 // Add placeholder items until we reach 70
 while (products.length < 70) {
@@ -824,6 +1178,29 @@ function startExperiment() {
 
 
 
+function setCategory(cat) {
+    currentMacroCategory = cat;
+
+    // aggiorna stato visuale dei tab
+    const tabs = document.querySelectorAll('.catTab');
+    tabs.forEach(t => t.classList.remove('active'));
+    tabs.forEach(t => {
+        if (t.getAttribute('onclick') && t.getAttribute('onclick').includes("'" + cat + "'")) {
+            t.classList.add('active');
+        }
+    });
+
+    // filtro prodotti
+    const cats = macroCategories[cat];
+    if (!cats) {
+        productsFiltered = products;
+    } else {
+        productsFiltered = products.filter(p => cats.includes(p.category));
+    }
+
+    buildShelf();
+}
+
 // -----------------------------------------------------------------------------
 // BUILD SHELF
 // -----------------------------------------------------------------------------
@@ -831,35 +1208,33 @@ function buildShelf() {
     const shelf = document.getElementById("shelf");
     shelf.innerHTML = "";
 
-    // --- NUOVA GRIGLIA PERFETTA: 5 COLONNE ---
     let grid = document.createElement("div");
     grid.className = "productGrid";
     shelf.appendChild(grid);
 
     let hoverStart = 0;
 
-    products.forEach((p) => {
+    // usa productsFiltered invece di products
+    productsFiltered.forEach((p) => {
 
         let slot = document.createElement("div");
         slot.className = "product";
 
-        // --- immagine ---
+        // immagine
         let img = document.createElement("img");
         img.src = p.img || "https://via.placeholder.com/120";
 
-        // --- nome ---
+        // nome
         let name = document.createElement("div");
         name.className = "name";
         name.textContent = p.name;
 
-        // --- prezzo ---
+        // prezzo
         let price = document.createElement("div");
         price.className = "price";
         price.textContent = "€" + p.price;
 
-        // =====================================================
-        // EVENTI MOUSEOVER (slot intero)
-        // =====================================================
+        // HOVER
         slot.onmouseover = () => {
             hoverStart = Date.now();
             hoverLog.push({
@@ -878,9 +1253,7 @@ function buildShelf() {
             }
         };
 
-        // =====================================================
-        // CLICK SU TUTTO IL BOX PRODOTTO
-        // =====================================================
+        // CLICK
         slot.onclick = () => {
             clickLog.push({
                 product: p.name,
@@ -904,8 +1277,8 @@ function buildShelf() {
 }
 
 
-buildShelf();
-
+// buildShelf();
+setCategory('ALL');
 // -----------------------------------------------------------------------------
 // CART
 // -----------------------------------------------------------------------------
@@ -960,6 +1333,13 @@ function finishShopping() {
         alert("⚠️ Error submitting data. Please try again.");
         console.log(err);
     });
+	
+	
+
+		
+
+	
+		
 }
 
 
@@ -971,28 +1351,40 @@ function showParticipantForm() {
 
 
 
+function resetToHome() {
+    // pulisci carrello e log
+    cart = [];
+    clickLog = [];
+    hoverLog = [];
+    indecisionLog = [];
+    document.getElementById("cartCount").innerText = "0";
+
+    // mostra schermata iniziale, nasconde il resto
+    document.getElementById("introScreen").style.display = "flex";
+    document.getElementById("startScreen").style.display = "none";
+    document.getElementById("shelf").style.display = "block";
+    document.getElementById("cartPage").style.display = "none";
+    document.getElementById("thankYouScreen").style.display = "none";
+
+    experimentStart = Date.now();
+}
+
+
 </script>
 
 
 
 
 
-<div id="thankYouScreen" style="
-    display:none; position:fixed; top:0; left:0; width:100%; height:100%;
-    background:linear-gradient(135deg,#f2f4f7,#ffffff);
-    z-index:3000;justify-content:center; align-items:center;
-">
-    <div style="
-        background:white; padding:40px 50px; width:420px; border-radius:20px;
-        box-shadow:0 6px 25px rgba(0,0,0,0.15); text-align:center;
-    ">
-        <h2 style="font-size:26px; color:#004aad; margin-bottom:15px;">
-            🎉 Thank you for participating!
-        </h2>
-        <p style="color:#333; font-size:16px;">
-            Your responses have been recorded successfully. <br><br>
-            You may now close this page.
-        </p>
+<div id="thankYouScreen">
+    <div class="thank-you-modal">
+        <div class="thank-you-icon">🎉</div>
+        <h2>Thank you for participating!</h2>
+        <p>Your responses have been recorded successfully.</p>
+        <p style="font-size: 13px; color: #94a3b8;">You may now close this page.</p>
+        <button class="thank-you-btn" onclick="resetToHome()">
+            🏠 Back to Home
+        </button>
     </div>
 </div>
 
@@ -1000,6 +1392,6 @@ function showParticipantForm() {
 
 
 
+
 </body>
 </html>
-
