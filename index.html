@@ -918,6 +918,44 @@ button {
 
 
 
+
+.removeBtn {
+    margin-left: 8px;
+    padding: 3px 8px;
+    font-size: 11px;
+    border-radius: 10px;
+    background: #e5e7eb;
+    color: #111827;
+    border: 1px solid #d1d5db;
+    cursor: pointer;
+    white-space: nowrap; /* non va a capo */
+}
+
+.removeBtn:hover {
+    background: #d1d5db;
+}
+
+
+#cartList li {
+    padding: 8px 0;
+    font-size: 16px;
+    border-bottom: 1px solid #eee;
+}
+
+
+
+@media (max-width: 700px) {
+    #cartList li {
+        font-size: 14px;
+    }
+
+    .removeBtn {
+        padding: 2px 6px;
+        font-size: 10px;
+    }
+}
+
+
 </style>
 
 
@@ -1594,14 +1632,13 @@ function renderCartList() {
     } else {
         cart.forEach((item, index) => {
             const li = document.createElement("li");
-            li.innerHTML = `
-                ${item.name} – € ${item.price.toFixed(2)} x ${item.quantity}
-                = € ${(item.price * item.quantity).toFixed(2)}
-                <button onclick="removeFromCart(${index})"
-                        style="margin-left:10px; padding:4px 8px; font-size:12px;">
-                    Rimuovi
-                </button>
-            `;
+						li.innerHTML = `
+				${item.name} – € ${item.price.toFixed(2)} x ${item.quantity}
+				= € ${(item.price * item.quantity).toFixed(2)}
+				<button class="removeBtn" onclick="removeFromCart(${index})">
+					Remove
+				</button>
+			`;
             list.appendChild(li);
         });
     }
