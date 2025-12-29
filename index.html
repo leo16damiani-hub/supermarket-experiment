@@ -760,11 +760,19 @@ button {
         font-size: 12px;
     }
 
-    #cartPage {
-        width: 95%;
-        padding: 20px 15px;
-    }
 
+	#cartPage {
+		width: 80%;
+		padding: 20px 15px;
+		margin-top: 20px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	#cartList li {
+		font-size: 14px;
+	}
+	
     #cartPage h2 {
         font-size: 20px;
     }
@@ -929,7 +937,9 @@ button {
     border: 1px solid #d1d5db;
     cursor: pointer;
     white-space: nowrap; /* non va a capo */
+    flex-shrink: 0;
 }
+
 
 .removeBtn:hover {
     background: #d1d5db;
