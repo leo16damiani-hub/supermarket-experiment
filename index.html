@@ -1015,7 +1015,26 @@ button {
     .product img {
         height: 90px;   /* come hai già, per non rimpicciolire oltre */
     }
+	
 }
+
+
+
+
+/* Barra solo per riempire l'area sopra l'header su smartphone */
+@media (max-width: 700px) {
+    #iosTopBar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: env(safe-area-inset-top, 20px); /* spazio notch / barra stato */
+        background: linear-gradient(135deg, #0f172a, #1e293b); /* stesso dell'header */
+        z-index: 9999;
+        pointer-events: none;
+    }
+}
+
 
 
 </style>
@@ -1043,6 +1062,7 @@ button {
 
 <body>
 
+<div id="iosTopBar"></div>
 
 
 
