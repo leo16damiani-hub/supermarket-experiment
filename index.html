@@ -928,6 +928,8 @@ button {
 
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 
 </head>
@@ -1207,6 +1209,25 @@ button {
 
 <script>
 
+
+
+// Evita doppio-tap zoom
+let lastTouchEnd = 0;
+document.addEventListener('touchend', function (event) {
+    const now = Date.now();
+    if (now - lastTouchEnd <= 300) {
+        event.preventDefault(); // blocca zoom da doppio tap
+    }
+    lastTouchEnd = now;
+}, { passive: false });
+
+// Evita pinch-zoom (2+ dita)
+document.addEventListener('touchstart', function (event) {
+    if (event.touches.length > 1) {
+        event.preventDefault();
+    }
+}, { passive: false });
+
 	
 // -----------------------------------------------------------------------------
 // LOGGING
@@ -1404,6 +1425,10 @@ function startExperiment() {
 
     // Reset experiment timer
     experimentStart = Date.now();
+	
+	  // Forza partenza dall'alto, senza zoom
+    window.scrollTo(0, 0);
+    document.body.style.zoom = "1";
 
     console.log("Experiment started for:", userID);
 }
