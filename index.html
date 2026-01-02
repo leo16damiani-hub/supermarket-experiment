@@ -1537,6 +1537,8 @@ let deviceType = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)
     : "desktop";
 
 let deviceInfo = navigator.userAgent; // opzionale
+// Dizionario globale, vicino a let clickLog = [];
+let lastAddTime = {};
 
 
 // --------------------------
@@ -1627,42 +1629,34 @@ function buildShelf() {
         price.className = "price";
         price.textContent = "€" + p.price;
 
-        // HOVER SOLO DESKTOP
-	slot.onmouseover = () => {
-		if (deviceType !== "desktop") return;
 
-		hoverStart = Date.now();
-		hoverLog.push({
-			product: p.name,
-			hover_ms: Date.now() - experimentStart,
-			device: deviceType
-		});
-	};
+		 // HOVER SOLO DESKTOP
+		slot.onmouseover = () => {
+			if (deviceType !== "desktop") return;
 
-	slot.onmouseleave = () => {
-		if (deviceType !== "desktop") return;
-
-		let time = Date.now() - hoverStart;
-		if (time > 1500) {
-			indecisionLog.push({
+			hoverStart = Date.now();
+			hoverLog.push({
 				product: p.name,
-				indecision_ms: time,
+				hover_ms: Date.now() - experimentStart,
 				device: deviceType
 			});
-		}
-	};
+		};
 
-			   // CLICK
+		slot.onmouseleave = () => {
+			if (deviceType !== "desktop") return;
+
+			let time = Date.now() - hoverStart;
+			if (time > 1500) {
+				indecisionLog.push({
+					product: p.name,
+					indecision_ms: time,
+					device: deviceType
+				});
+			}
+		};
+
+		// CLICK
 		slot.onclick = () => {
-			clickLog.push({
-				product: p.name,
-				price: p.price,
-				category: p.category,
-				click_ms: Date.now() - experimentStart,
-				device: deviceType
-			});
-
-
 			// gestione carrello con quantità
 			const existing = cart.find(item => item.name === p.name);
 			if (existing) {
@@ -1675,11 +1669,27 @@ function buildShelf() {
 				});
 			}
 
-    updateCartTotal();
-    document.getElementById("cartCount").innerText = getTotalItemsInCart();
+			updateCartTotal();
+			document.getElementById("cartCount").innerText = getTotalItemsInCart();
+			showToast(p.name + " added to cart ✓");
 
-    showToast(p.name + " added to cart ✓");
-};
+			const now = Date.now() - experimentStart;
+
+			// aggiorna tempo dell'ultima aggiunta per questo prodotto
+			lastAddTime[p.name] = now;
+
+			clickLog.push({
+				action: "add",
+				product: p.name,
+				price: p.price,
+				category: p.category,
+				click_ms: now,
+				device: deviceType,
+				quantity_after: existing ? existing.quantity : 1,
+				cart_total_after: cartTotal
+			});
+		};
+
 
 
         slot.appendChild(img);
@@ -1746,14 +1756,37 @@ function renderCartList() {
 }
 
 function removeFromCart(index) {
-    if (cart[index].quantity > 1) {
-        cart[index].quantity -= 1;
-    } else {
+    const item = cart[index];
+    const now = Date.now() - experimentStart;
+
+    // calcolo Δt aggiunta–rimozione
+    let deltaAddRemoveMs = null;
+    if (lastAddTime[item.name] != null) {
+        deltaAddRemoveMs = now - lastAddTime[item.name];
+    }
+
+    // aggiorna quantità / rimozione
+    let newQuantity = item.quantity - 1;
+    if (newQuantity <= 0) {
         cart.splice(index, 1);
+    } else {
+        cart[index].quantity = newQuantity;
     }
     updateCartTotal();
     renderCartList();
-    document.getElementById("cartCount").innerText = cart.length;
+    document.getElementById("cartCount").innerText = getTotalItemsInCart();
+
+    clickLog.push({
+        action: "remove",
+        product: item.name,
+        price: item.price,
+        category: item.category,
+        click_ms: now,
+        device: deviceType,
+        quantity_after: newQuantity > 0 ? newQuantity : 0,
+        cart_total_after: cartTotal,
+        delta_add_remove_ms: deltaAddRemoveMs
+    });
 }
 
 
