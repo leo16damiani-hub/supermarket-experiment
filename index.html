@@ -1888,77 +1888,79 @@ function removeFromCart(index) {
 
 
 function finishShopping() {
+    updateBudgetDynamics(Date.now() - experimentStart);
 
-	updateBudgetDynamics(Date.now() - experimentStart);
-
-		// BLOCCO AVVISO FINALE BUDGET
-	if (isOverBudget()) {
-		const extra = (cartTotal - userBudget);
-				const ok = confirm(
-		  `You have exceeded your budget.\n\nBudget: €${userBudget.toFixed(2)}\nTotal: €${cartTotal.toFixed(2)}\nOver by: €${extra.toFixed(2)}\n\nDo you still want to finish and submit?`
-		);
-
-		if (!ok) return; // resta nella pagina carrello
-	}
-
-
-
-    let totalTime = Date.now() - experimentStart;
-
-    // tempo passato nel carrello dall'ultima apertura
-    let cartDurationFinal = null;
-    if (cartOpenTime !== null) {
-        cartDurationFinal = Date.now() - cartOpenTime;
+    // BLOCCO AVVISO FINALE BUDGET
+    if (isOverBudget()) {
+        const extra = (cartTotal - userBudget);
+        const ok = confirm(
+            `You have exceeded your budget.\n\nBudget: €${userBudget.toFixed(2)}\nTotal: €${cartTotal.toFixed(2)}\nOver by: €${extra.toFixed(2)}\n\nDo you still want to finish and submit?`
+        );
+        if (!ok) return;
     }
 
-    // CALCOLO METRICHE AGGIUNTIVE
+    let totalTime = Date.now() - experimentStart;
+    let cartDurationFinal = cartOpenTime !== null ? (Date.now() - cartOpenTime) : null;
     let timePerItem = cart.length > 0 ? Math.round(totalTime / cart.length) : 0;
     let clickedNoBuy = clickedProducts.length - cart.length;
 
-    let data = {
+    // 📌 DATA per SCRIPT VECCHIO 
+    let dataVecchio = {
         userID: userID,
-        age: userAge,
-        gender: userGender,
-        nation: userNation,
+		age: userAge,
+		gender: userGender,
+		nation: userNation,
         onlineFreq: userOnline,
-        shopFreq: userFreq,
-        totalTime: totalTime,
-        
-        // NUOVI DATI CHE VEDRAI SU GOOGLE SHEETS
+		shopFreq: userFreq,
+		totalTime: totalTime,
         budget_eur: userBudget,
-        cart_total: Number(cartTotal.toFixed(2)),
+		cart_total: Number(cartTotal.toFixed(2)),
         category_changes: categoryChanges,
-        time_per_item_ms: timePerItem,
+		time_per_item_ms: timePerItem,
         clicked_no_buy: clickedNoBuy,
-        
-        // VECCHI LOG (rimangono)
-        clickLog: clickLog,
-        hoverLog: hoverLog,
+		clickLog: clickLog,
+		hoverLog: hoverLog,
         indecisionLog: indecisionLog,
-        cartDurationFinal: cartDurationFinal,
-		
-		
-		
-		overshootmaxeur: Number(overMax.toFixed(2)),
+		cartDurationFinal: cartDurationFinal,
+        overshootmaxeur: Number(overMax.toFixed(2)),
 		overshoottimems: overTotalMs,
-		firstovershootms: firstOverMs,
+        firstovershootms: firstOverMs,
 		recovertimems: (firstOverMs !== null && recoveredMs !== null) ? (recoveredMs - firstOverMs) : null,
-		recovered: (firstOverMs !== null && recoveredMs !== null),
-		removalsafterovershoot: removalsAfterFirstOver
-		
+        recovered: (firstOverMs !== null && recoveredMs !== null), removalsafterovershoot: removalsAfterFirstOver
     };
-	
-	
-	
+
+    // 📌 DATA per SCRIPT NUOVO (KPI dinamica)
+    let dataNuovo = {
+        budgeteur: userBudget,
+        carttotal: Number(cartTotal.toFixed(2)),
+        overshootmaxeur: Number(overMax.toFixed(2)),
+        overshoottimems: overTotalMs,
+        firstovershootms: firstOverMs,
+        recovertimems: (firstOverMs !== null && recoveredMs !== null) ? (recoveredMs - firstOverMs) : null,
+        recovered: (firstOverMs !== null && recoveredMs !== null),
+        removalsafterovershoot: removalsAfterFirstOver,
+        categorychanges: categoryChanges,
+        nclicks: clickLog.length,
+        nhovers: hoverLog.length,
+        nindecisions: indecisionLog.length,
+        deviceType: deviceType
+    };
 
     document.getElementById("finishBtn").disabled = true;
     document.getElementById("finishBtn").innerText = "Submitting...";
 
+    // 📌 FETCH VECCHIO (foglio eventi)
     fetch("https://script.google.com/macros/s/AKfycbynE_0AMronN-Zdrt3PAknFdz--bZo5idPZRy71q1FC4KrUSx4YZ-1oQHWUXC3TQ5NaWg/exec", {
-        method: "POST",
-        mode: "no-cors",
+        method: "POST", mode: "no-cors",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
+        body: JSON.stringify(dataVecchio)
+    });
+
+    // 📌 FETCH NUOVO (foglio KPI dinamica) ← SOSTITUISCI URL
+    fetch("TUO_URL_APPS_SCRIPT_NUOVO", {
+        method: "POST", mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(dataNuovo)
     }).then(() => {
         alert("Thank you! Your response has been recorded.");
         location.reload();
@@ -1966,7 +1968,11 @@ function finishShopping() {
         alert("⚠️ Error submitting data. Please try again.");
         console.log(err);
     });
+	
+	
+	
 }
+
 
 
 
