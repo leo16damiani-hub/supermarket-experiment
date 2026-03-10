@@ -75,12 +75,15 @@ body {
 }
 
 #cartInfoMessage {
-    font-size: 13px;
+    font-size: 12px;
     padding: 6px 10px;
-    border-radius: 999px;
-    background: rgba(15,23,42,0.7);
-    border: 1px solid rgba(148,163,184,0.5);
-    color: #e5e7eb;
+    border-radius: 9px;
+    background: #facc15;
+    border: 1px solid rgba(250,204,21,0.55);
+    color: black;
+	 box-shadow: 0 6px 14px rgba(250,204,21,0.55);
+
+	       
 }
 
 /* pulsante carrello stile pill */
@@ -98,12 +101,18 @@ body {
     border: none;
     box-shadow: 0 6px 14px rgba(250,204,21,0.55);
     transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+	 flex-wrap:nowrap;     /* NON andare a capo */
+  white-space:nowrap;   /* NON spezzare le parole */
 }
 
 .cartButton:hover {
     background: #eab308;
     transform: translateY(-1px);
     box-shadow: 0 10px 18px rgba(250,204,21,0.6);
+}
+
+@media (max-width:700px){
+  #budgetBarWrap{ flex-basis:110px; }
 }
 
 
@@ -294,16 +303,6 @@ button {
 }
 
 
-#cartInfoMessage {
-
-    font-size: 14px;
-    background: #fff8c4;
-    border: 1px solid #f0d97b;
-    border-radius: 8px;
-
-    text-align: center;
-    color: #444;
-}
 
 
 /* 📌 RESPONSIVE LAYOUT */
@@ -335,76 +334,23 @@ button {
     }
 }
 
-/* 🟢 Smartphone (max-width: 700px) */
-@media (max-width: 700px) {
-    body {
-        padding-top: 120px;
-        justify-content: flex-start;
-    }
 
-    #header {
-        padding: 0 20px;
-        height: 65px;
-    }
+/* 🟠 Medium mobile/tablet (max-width: 830px) */
+@media (max-width: 830px){
 
-    #header h2 {
-        font-size: 18px;
-    }
+  /* prodotti: 3 colonne */
+  .productGrid{
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }           
+  .cartInfoMessage{
+	
+	height:80%;
+  }
 
-    #instructionBar {
-        height: 60px;
-        font-size: 13px;
-        text-align: center;
-        padding: 0 10px;
-    }
-
-    #cartButton, #header div {
-        padding: 7px 12px;
-        border-radius: 14px;
-        font-size: 14px;
-    }
-
-    .productGrid {
-        grid-template-columns: repeat(2, 1fr); /* 2 prodotti per riga */
-        gap: 12px;
-    }
-
-    .product {
-        height: 180px;
-        padding: 6px;
-    }
-
-    .product img {
-        height: 90px;
-    }
-
-    .name {
-        font-size: 12px;
-    }
-
-    .price {
-        font-size: 12px;
-    }
-
-
-    #cartPage h2 {
-        font-size: 20px;
-    }
-
-    button {
-        width: 100%;
-        margin-top: 10px;
-        font-size: 16px;
-        padding: 12px 0;
-    }
-
-    #toast {
-        right: 15px;
-        top: 90px;
-        font-size: 13px;
-        padding: 10px 14px;
-    }
 }
+
+
 
 /* 🔴 Mobile piccolo (max-width: 400px) */
 @media (max-width: 400px) {
@@ -705,104 +651,14 @@ button {
 
 
 
-/* 🟢 Smartphone (max-width: 700px) */
-@media (max-width: 700px) {
-    body {
-        padding-top: 120px;
-        justify-content: flex-start;
-    }
-
-    #header {
-        padding: 0 20px;
-        height: 65px;
-    }
-
-    #header h2 {
-        font-size: 18px;
-    }
-
-    #instructionBar {
-        height: 60px;
-        font-size: 13px;
-        text-align: center;
-        padding: 0 10px;
-    }
-
-    #cartButton, #header div {
-        padding: 7px 12px;
-        border-radius: 14px;
-        font-size: 14px;
-    }
-
-    .productGrid {
-        grid-template-columns: repeat(2, 1fr); /* 2 prodotti per riga */
-        gap: 12px;
-    }
-
-    .product {
-        height: 180px;
-        padding: 6px;
-    }
-
-    .product img {
-        height: 90px;
-    }
-
-    .name {
-        font-size: 12px;
-    }
-
-    .price {
-        font-size: 12px;
-    <!-- } -->
-
-
-	#cartPage {
-		width: 70%;
-		padding: 20px 15px;
-		margin-top: 20px;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	#cartList li {
-		font-size: 14px;
-		margin-left: 20px;
-		
-		
-	}
-	
-    #cartPage h2 {
-        font-size: 20px;
-    }
-
-    
-    #finishBtn,
-    #backBtn,
-    .intro-btn,
-    .start-btn,
-    .thank-you-btn {
-        width: 100%;
-        margin-top: 10px;
-        font-size: 16px;
-        padding: 12px 0;
-    }
-
-    #toast {
-        right: 15px;
-        top: 90px;
-        font-size: 13px;
-        padding: 10px 14px;
-    }
-}
-
 
 /* 🟢 Smartphone (max-width: 700px) */
 @media (max-width: 700px) {
     /* niente layout flex che spinge tutto a destra */
     body {
         display: block;
-        padding-top: 20px;
+        padding-top: 0px;
+		
     }
 
     /* HEADER: non fisso, più compatto */
@@ -814,11 +670,17 @@ button {
         flex-direction: column;
         align-items: flex-start;
         gap: 6px;
+		
+		
     }
 
     .header-left {
         gap: 2px;
+		align-self: center;
+		margin-bottom:10px;
     }
+
+
 
     #header h2 {
         font-size: 20px;
@@ -829,7 +691,7 @@ button {
     }
 
     .header-right {
-        align-self: stretch;
+        align-self: center;
         justify-content: flex-end;
         gap: 8px;
     }
@@ -839,10 +701,6 @@ button {
         font-size: 13px;
     }
 
-    #cartInfoMessage {
-        font-size: 12px;
-        padding: 5px 8px;
-    }
 
     /* NASCONDI la barra gialla/colonna sinistra */
     #instructionBar {
@@ -1037,6 +895,46 @@ button {
 
 
 
+/* Budget bar (header) */
+#budgetBarWrap{
+  display:inline-block;
+  vertical-align:middle;
+  margin-left:10px;
+  width:160px;
+  height:10px;
+  border-radius:999px;
+  overflow:hidden;
+  background:rgba(255,255,255,0.18);
+  border:1px solid rgba(148,163,184,0.6);
+  box-sizing:border-box;
+}
+
+#budgetBarFill{
+  height:100%;
+  width:0%;
+  background:#22c55e;
+  transition:width 0.2s ease, background 0.2s ease;
+  border-radius:999px; /* evita “sbavature” agli angoli */
+}
+
+#budgetBarText{
+  display:inline-block;
+  vertical-align:middle;
+  margin-left:8px;
+  font-size:12px;
+  opacity:0.9;
+  text-align:right;
+  width:160px;     /* invece di min-width */
+  white-space:nowrap;
+}
+
+/* quando lo schermo è piccolo, riduci */
+@media (max-width: 700px){
+  #budgetBarWrap{ width:110px; height:8px; margin-left:6px; }
+  #budgetBarText{ width:110px; font-size:11px; margin-left:6px; }
+}
+
+
 </style>
 
 
@@ -1082,12 +980,30 @@ button {
   </div>
 
   <div class="header-right">
-    <div id="cartInfoMessage">
-      Cart: <span id="cartCount">0</span> items
-    </div>
-    <div class="cartButton" onclick="openCart()">
-      🛒 Cart
-    </div>
+  
+  
+		<div id="cartInfoMessage">
+			  Cart: <span id="cartCount">0</span> items | Tot: €<span id="cartTotal">0.00</span>
+			  <span id="budgetBadge" style="display:none; margin-left:8px; color:#991b1b; background:#fee2e2; border:1px solid #fecaca; padding:2px 8px; border-radius:999px; font-weight:700;">
+				Over budget
+			  </span>
+		  
+		  
+		  
+			<div id="budgetBarWrap">
+			  <div id="budgetBarFill"></div>
+			</div>
+			<span id="budgetBarText"></span>
+
+
+
+		</div>
+
+		<div class="cartButton" onclick="openCart()">
+		  🛒 Cart
+		</div>
+	
+	
   </div>
 </div>
 
@@ -1212,6 +1128,15 @@ button {
                 </select>
             </div>
         </div>
+		
+		         
+
+		<div class="form-group">
+			<label class="form-label">Budget spesa (€, facoltativo)</label>
+			<input id="budgetInput" type="number" min="0" step="0.01" class="form-input" placeholder="Es: 20.00">
+		</div>
+
+
 
         <button class="start-btn" onclick="startExperiment()">
             Start the Experiment ✓
@@ -1374,6 +1299,22 @@ let indecisionLog = [];
 let clickLog = [];
 let cart = [];
 let cartTotal = 0;
+let categoryChanges = 0;
+let lastCategory = 'ALL';
+let userBudget = 0; // 0 = no budget
+let clickedProducts = []; // Per tenere traccia dei clic senza acquisto
+
+
+
+let overStartMs = null;          // quando entri over-budget (prima volta in un episodio)
+let overTotalMs = 0;             // tempo totale over-budget
+let overMax = 0;                 // massimo sforamento in €
+let firstOverMs = null;          // timestamp del primo overshoot (ms da start)
+let recoveredMs = null;          // timestamp quando rientra dopo il primo overshoot
+let removalsAfterFirstOver = 0;  // #remove dopo primo overshoot
+let lastBudgetCheckMs = 0;       // per integrare tempo over (delta t)
+
+
 
 
 // -----------------------------------------------------------------------------
@@ -1520,6 +1461,102 @@ function showToast(msg) {
 
 
 
+
+
+let budgetAlertShown = false;
+
+function updateHeaderUI() {
+
+
+	  const countEl = document.getElementById("cartCount");
+	  const totalEl = document.getElementById("cartTotal");      // deve esistere in header
+	  const badgeEl = document.getElementById("budgetBadge");    // opzionale
+	  const headerEl = document.getElementById("header");        // nel tuo HTML c’è id="header"
+
+	  if (countEl) countEl.innerText = getTotalItemsInCart();
+	  if (totalEl) totalEl.innerText = cartTotal.toFixed(2);
+
+	  const over = (userBudget > 0 && cartTotal > userBudget);
+
+	  if (totalEl) totalEl.style.color = over ? "red" : "";
+	  if (badgeEl) badgeEl.style.display = over ? "inline-block" : "none";
+	  if (headerEl) headerEl.style.boxShadow = over ? "0 4px 18px rgba(220,38,38,0.45)" : "";
+	  
+	  
+	  
+	  
+	  const fillEl = document.getElementById("budgetBarFill");
+	  const textEl = document.getElementById("budgetBarText");
+	  const wrapEl = document.getElementById("budgetBarWrap");
+
+	  // Se l’utente non mette budget, nascondi la barra
+	  if (!userBudget || userBudget <= 0) {
+		if (wrapEl) wrapEl.style.display = "none";
+		if (textEl) textEl.style.display = "none";
+		return;
+	  } else {
+		if (wrapEl) wrapEl.style.display = "block";
+		if (textEl) textEl.style.display = "block";
+	  }
+
+	  const ratio = cartTotal / userBudget;              // es. 0.75, 1.10...
+	  const pct = Math.min(ratio, 1.2) * 100;            // clamp a 120% per non “sfondare”
+	  if (fillEl) fillEl.style.width = pct.toFixed(1) + "%";
+
+	  // Colori: verde < 80%, giallo 80-100, rosso > 100
+	  if (fillEl) {
+		if (ratio > 1) fillEl.style.background = "#ef4444";
+		else if (ratio >= 0.8) fillEl.style.background = "#f59e0b";
+		else fillEl.style.background = "#22c55e";
+	  }
+
+	  if (textEl) {
+		const remaining = userBudget - cartTotal;
+		textEl.textContent = remaining >= 0
+		  ? `Remaining: €${remaining.toFixed(2)}`
+		  : `Over by: €${(-remaining).toFixed(2)}`;
+
+	  }
+
+
+
+
+}
+
+
+
+
+function isOverBudget() {
+    return (userBudget > 0 && cartTotal > userBudget);
+}
+
+
+function updateBudgetDynamics(nowMs) {
+  if (!userBudget || userBudget <= 0) return;
+
+  const over = cartTotal > userBudget;
+  const overshoot = Math.max(0, cartTotal - userBudget);
+
+  overMax = Math.max(overMax, overshoot);
+
+  const dt = Math.max(0, nowMs - lastBudgetCheckMs);
+  if (over) overTotalMs += dt;
+  lastBudgetCheckMs = nowMs;
+
+  if (over && firstOverMs === null) firstOverMs = nowMs;
+
+  if (over && overStartMs === null) overStartMs = nowMs;
+
+  if (!over && overStartMs !== null) overStartMs = null;
+
+  if (firstOverMs !== null && recoveredMs === null && !over) recoveredMs = nowMs;
+}
+
+
+
+
+
+
 // --------------------------
 // USER PROFILE VARIABLES
 // --------------------------
@@ -1557,12 +1594,26 @@ function startExperiment() {
         return;
 		
     }
+	
+	
+	userBudget = parseFloat(document.getElementById('budgetInput').value) || 0;
+	budgetAlertShown = false;
+	updateHeaderUI();
 
     // Hide the start screen
     document.getElementById("startScreen").style.display = "none";
 
     // Reset experiment timer
     experimentStart = Date.now();
+	
+	
+	overStartMs = null;
+	overTotalMs = 0;
+	overMax = 0;
+	firstOverMs = null;
+	recoveredMs = null;
+	removalsAfterFirstOver = 0;
+	lastBudgetCheckMs = 0;
 	
 	  // Forza partenza dall'alto, senza zoom
     window.scrollTo(0, 0);
@@ -1575,7 +1626,15 @@ function startExperiment() {
 
 function setCategory(cat) {
     currentMacroCategory = cat;
-
+	
+	
+	    // AGGIUNGI QUESTO BLOCCO:
+    if (lastCategory !== cat) {
+        categoryChanges++;
+        lastCategory = cat;
+    }
+	
+	
     // aggiorna stato visuale dei tab
     const tabs = document.querySelectorAll('.catTab');
     tabs.forEach(t => t.classList.remove('active'));
@@ -1656,39 +1715,46 @@ function buildShelf() {
 		};
 
 		// CLICK
-		slot.onclick = () => {
-			// gestione carrello con quantità
-			const existing = cart.find(item => item.name === p.name);
-			if (existing) {
-				existing.quantity += 1;
-			} else {
-				cart.push({
-					name: p.name,
-					price: p.price,
-					quantity: 1
-				});
-			}
+				slot.onclick = () => {
+					const existing = cart.find(item => item.name === p.name);
+					if (existing) {
+						existing.quantity += 1;
+					} else {
+						cart.push({ name: p.name, price: p.price, quantity: 1, category: p.category });
+					}
 
-			updateCartTotal();
-			document.getElementById("cartCount").innerText = getTotalItemsInCart();
-			showToast(p.name + " added to cart ✓");
+					updateCartTotal();
+					
+					
+					const now = Date.now() - experimentStart;
+					updateBudgetDynamics(now);
 
-			const now = Date.now() - experimentStart;
+					// TRACCIA CLICK
+					clickedProducts.push({ name: p.name, category: p.category });
 
-			// aggiorna tempo dell'ultima aggiunta per questo prodotto
-			lastAddTime[p.name] = now;
+					// AGGIORNA HEADER + BUDGET WARNING
+					updateHeaderUI();
 
-			clickLog.push({
-				action: "add",
-				product: p.name,
-				price: p.price,
-				category: p.category,
-				click_ms: now,
-				device: deviceType,
-				quantity_after: existing ? existing.quantity : 1,
-				cart_total_after: cartTotal
-			});
-		};
+					// (opzionale) toast "added" solo se NON sei over budget, così non spammi due toast
+					if (!(userBudget > 0 && cartTotal > userBudget)) {
+						showToast(p.name + " added to cart");
+					}
+
+					
+					lastAddTime[p.name] = now;
+
+					clickLog.push({
+						action: 'add',
+						product: p.name,
+						price: p.price,
+						category: p.category,
+						click_ms: now,
+						device: deviceType,
+						quantity_after: existing ? existing.quantity : 1,
+						cart_total_after: cartTotal
+					});
+				};
+
 
 
 
@@ -1736,7 +1802,7 @@ function renderCartList() {
     list.innerHTML = "";
 
     if (cart.length === 0) {
-        list.innerHTML = "<li>Il carrello è vuoto.</li>";
+          list.innerHTML = "<li>Your cart is empty.</li>";
     } else {
         cart.forEach((item, index) => {
             const li = document.createElement("li");
@@ -1751,13 +1817,42 @@ function renderCartList() {
         });
     }
 
+
+
     document.getElementById("cartTotalDisplay").innerText =
         "Totale: € " + cartTotal.toFixed(2);
+		
+		
+		
+	const totalDisplay = document.getElementById("cartTotalDisplay");
+	if (totalDisplay) {
+	  const over = (userBudget > 0 && cartTotal > userBudget);
+	  totalDisplay.style.color = over ? "red" : "";
+	  totalDisplay.style.fontWeight = "700";
+
+	  if (over) {
+		totalDisplay.innerText =
+		  `Totale €${cartTotal.toFixed(2)}  (Budget €${userBudget.toFixed(2)} exceeded)`;
+	  } else if (userBudget > 0) {
+		totalDisplay.innerText =
+		  `Total €${cartTotal.toFixed(2)}  (Budget €${userBudget.toFixed(2)})`;
+	  } else {
+		totalDisplay.innerText = `Total €${cartTotal.toFixed(2)}`;
+	  }
+	}
+
+
+
 }
 
 function removeFromCart(index) {
     const item = cart[index];
     const now = Date.now() - experimentStart;
+	
+	
+	if (firstOverMs !== null && now >= firstOverMs) {
+	  removalsAfterFirstOver += 1;
+	}
 
     // calcolo Δt aggiunta–rimozione
     let deltaAddRemoveMs = null;
@@ -1773,6 +1868,7 @@ function removeFromCart(index) {
         cart[index].quantity = newQuantity;
     }
     updateCartTotal();
+	updateBudgetDynamics(now);
     renderCartList();
     document.getElementById("cartCount").innerText = getTotalItemsInCart();
 
@@ -1792,6 +1888,21 @@ function removeFromCart(index) {
 
 
 function finishShopping() {
+
+	updateBudgetDynamics(Date.now() - experimentStart);
+
+		// BLOCCO AVVISO FINALE BUDGET
+	if (isOverBudget()) {
+		const extra = (cartTotal - userBudget);
+				const ok = confirm(
+		  `You have exceeded your budget.\n\nBudget: €${userBudget.toFixed(2)}\nTotal: €${cartTotal.toFixed(2)}\nOver by: €${extra.toFixed(2)}\n\nDo you still want to finish and submit?`
+		);
+
+		if (!ok) return; // resta nella pagina carrello
+	}
+
+
+
     let totalTime = Date.now() - experimentStart;
 
     // tempo passato nel carrello dall'ultima apertura
@@ -1799,6 +1910,10 @@ function finishShopping() {
     if (cartOpenTime !== null) {
         cartDurationFinal = Date.now() - cartOpenTime;
     }
+
+    // CALCOLO METRICHE AGGIUNTIVE
+    let timePerItem = cart.length > 0 ? Math.round(totalTime / cart.length) : 0;
+    let clickedNoBuy = clickedProducts.length - cart.length;
 
     let data = {
         userID: userID,
@@ -1808,11 +1923,33 @@ function finishShopping() {
         onlineFreq: userOnline,
         shopFreq: userFreq,
         totalTime: totalTime,
+        
+        // NUOVI DATI CHE VEDRAI SU GOOGLE SHEETS
+        budget_eur: userBudget,
+        cart_total: Number(cartTotal.toFixed(2)),
+        category_changes: categoryChanges,
+        time_per_item_ms: timePerItem,
+        clicked_no_buy: clickedNoBuy,
+        
+        // VECCHI LOG (rimangono)
         clickLog: clickLog,
         hoverLog: hoverLog,
         indecisionLog: indecisionLog,
-        cartDurationFinal: cartDurationFinal
+        cartDurationFinal: cartDurationFinal,
+		
+		
+		
+		overshootmaxeur: Number(overMax.toFixed(2)),
+		overshoottimems: overTotalMs,
+		firstovershootms: firstOverMs,
+		recovertimems: (firstOverMs !== null && recoveredMs !== null) ? (recoveredMs - firstOverMs) : null,
+		recovered: (firstOverMs !== null && recoveredMs !== null),
+		removalsafterovershoot: removalsAfterFirstOver
+		
     };
+	
+	
+	
 
     document.getElementById("finishBtn").disabled = true;
     document.getElementById("finishBtn").innerText = "Submitting...";
