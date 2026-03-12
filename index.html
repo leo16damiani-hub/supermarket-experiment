@@ -207,10 +207,11 @@ body {
    PRODUCT CARDS
 ----------------------------------------------------------- */
 .product {
+    position: relative;   /* AGGIUNGI QUESTA RIGA! È lei che tiene fermo il pallino! */
     background: #ffffff;
     border-radius: 14px;
     padding: 8px;
-    height: 210px; /* FIX */
+    height: 210px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -220,6 +221,7 @@ body {
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     transition: transform 0.15s;
 }
+
 
 .product:hover {
     transform: translateY(-3px);
