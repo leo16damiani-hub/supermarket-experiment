@@ -26,6 +26,8 @@
 
 
 
+
+
 /* Stile per il pallino rosso con la quantità */
 .qty-badge {
     position: absolute;
@@ -891,10 +893,7 @@ button {
     }
 	
 	
-	#introScreen,
-    #startScreen {
-        padding-bottom: 120px !important;
-    }
+	
 
 
 
@@ -1389,32 +1388,10 @@ button {
 }
 
 /* Blocca lo scroll del body quando c'è un form aperto */
-html.form-open,
 body.form-open {
-    overflow: hidden !important;
-    height: 100vh !important;
+    overflow: hidden;
 }
 
-#introScreen,
-#startScreen {
-    position: fixed !important;
-    inset: 0 !important;
-    width: 100vw !important;
-    height: 100dvh !important;
-    min-height: 100dvh !important;
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
-    background: linear-gradient(135deg, #f0f4f8 0%, #e9ecf1 100%) !important;
-    z-index: 99999 !important;
-    box-sizing: border-box !important;
-    -webkit-overflow-scrolling: touch;
-}
-
-#mainInterface {
-    display: none;
-    position: relative;
-    z-index: 1;
-}
 
 
 .toast {
@@ -1445,6 +1422,10 @@ body.form-open {
 #mainInterface {
     display: none; 
 }
+body.form-open {
+    overflow: hidden; /* blocca lo scroll */
+}
+
 
 
 
@@ -2318,8 +2299,7 @@ function startExperiment() {
     document.getElementById("shelf").style.display = "block";
     
     // 2. FORZA LO SBLOCCO DELLO SCROLL
-	document.body.classList.remove("form-open");
-	document.documentElement.classList.remove("form-open");
+    document.body.classList.remove("form-open");
     document.body.style.overflow = "auto";
     document.body.style.height = "auto";
     
