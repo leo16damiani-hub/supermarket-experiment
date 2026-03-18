@@ -1517,6 +1517,12 @@ body.form-open {
 
 
 
+#introScreen,
+#startScreen {
+    isolation: isolate;
+}
+
+#introScreen::before,
 #startScreen::before {
     content: "";
     position: fixed;
@@ -1525,6 +1531,7 @@ body.form-open {
     z-index: 0;
 }
 
+.intro-modal,
 .start-modal {
     position: relative;
     z-index: 1;
