@@ -2289,7 +2289,6 @@ function showToast(productName) {
 // START EXPERIMENT FUNCTION
 // --------------------------
 function startExperiment() {
-
     userAge = document.getElementById("ageInput").value;
     userGender = document.getElementById("genderInput").value;
     userNation = document.getElementById("nationInput").value;
@@ -2299,56 +2298,47 @@ function startExperiment() {
     if (userAge === "" || userGender === "" || userNation === "") {
         alert("Please complete all required fields.");
         return;
-		
     }
-	
-	
-	userBudget = parseFloat(document.getElementById('budgetInput').value) || 0;
-	budgetAlertShown = false;
-	updateHeaderUI();
 
-    // Hide the start screen
+    userBudget = parseFloat(document.getElementById("budgetInput").value) || 0;
+    budgetAlertShown = false;
+    updateHeaderUI();
+
     document.getElementById("startScreen").style.display = "none";
 
-    // Reset experiment timer
     experimentStart = Date.now();
-	
-	
-	overStartMs = null;
-	overTotalMs = 0;
-	overMax = 0;
-	firstOverMs = null;
-	recoveredMs = null;
-	removalsAfterFirstOver = 0;
-	lastBudgetCheckMs = 0;
-	
-	  // Forza partenza dall'alto, senza zoom
+
+    overStartMs = null;
+    overTotalMs = 0;
+    overMax = 0;
+    firstOverMs = null;
+    recoveredMs = null;
+    removalsAfterFirstOver = 0;
+    lastBudgetCheckMs = 0;
+
     window.scrollTo(0, 0);
     document.body.style.zoom = "1";
 
-        // 1. Mostra il supermercato
+    document.getElementById("header").style.display = "flex";
     document.getElementById("categoryBar").style.display = "flex";
     document.getElementById("shelf").style.display = "block";
     document.getElementById("mainInterface").style.display = "block";
-	document.getElementById("header").style.display = "flex";
-	
-    // 2. FORZA LO SBLOCCO DELLO SCROLL
-	document.body.classList.remove("form-open");
-	document.documentElement.classList.remove("form-open");
-    document.body.style.overflow = "auto";
-    document.body.style.height = "auto";
-    
-	
-		
-	document.body.classList.remove("form-open");
-	document.documentElement.classList.remove("form-open");
-	document.body.style.overflow = "";
-	document.documentElement.style.overflow = "";
-    // 3. Ricalcola i prodotti
+
+    document.body.classList.remove("form-open");
+    document.documentElement.classList.remove("form-open");
+
+    document.body.style.overflow = "";
+    document.documentElement.style.overflow = "";
+    document.body.style.height = "";
+    document.documentElement.style.height = "";
+    document.body.style.position = "";
+    document.documentElement.style.position = "";
+    document.body.style.width = "";
+    document.documentElement.style.width = "";
+
     buildShelf();
-
-
 }
+
 
 
 
