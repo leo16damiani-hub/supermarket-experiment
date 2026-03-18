@@ -557,19 +557,22 @@ button {
 	    
 
     /* HEADER: FISSO e compatto */
-         #header {
-        position: fixed !important; 
-        top: env(safe-area-inset-top, 20px) !important; /* Considera lo spazio della barra di stato iOS */
-        left: 0;         
-        width: 100%;
+    #header {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
         height: auto !important;
         padding: 12px 16px !important;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-        z-index: 1000;   
+        box-sizing: border-box !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        z-index: 1000 !important;
+        text-align: center !important;
     }
-        
 	
 	
 	
@@ -577,31 +580,50 @@ button {
 	
 
     .header-left {
-        gap: 2px;
-        align-self: center;
-        margin-bottom: 5px;
-        width: 100%;
-        text-align: center;
+        width: 100% !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        gap: 4px !important;
     }
+
 
 
 
     #header h2 {
-        font-size: 20px;
+        width: 100% !important;
+        margin: 0 auto !important;
+        text-align: center !important;
     }
-
+	
+	
+	
+	
     #headerInstruction {
-        font-size: 12px;
+        width: 100% !important;
+        max-width: 330px !important;
+        margin: 0 auto !important;
+        text-align: center !important;
+        line-height: 1.25 !important;
+        display: block !important;
     }
+	
+	
+	
 
     .header-right {
-        align-self: center;
-        justify-content: center;
-        gap: 8px;
-        margin: 0;
-        width: 100%;
+        width: 100% !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 10px !important;
     }
-
 
 
 	
@@ -855,6 +877,21 @@ button {
         margin: 20px auto !important;
     }
 
+
+
+    .intro-logo {
+        height: 95px !important;
+        width: auto !important;
+        margin: 0 auto 10px auto !important;
+    }
+
+    .intro-logo-section {
+        align-items: center !important;
+        justify-content: center !important;
+    }
+	
+	
+	
 
 
 
@@ -1448,6 +1485,33 @@ body.form-open {
 
 
 
+
+
+
+
+.intro-logo-section {
+    width: 100%;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    margin-bottom: 20px;
+}
+
+.intro-logo {
+    display: block !important;
+    margin: 0 auto 8px auto !important;
+    max-width: 100% !important;
+    height: 180px;
+    object-fit: contain;
+}
+
+.intro-modal h2,
+.intro-modal p,
+.intro-subtitle {
+    text-align: center !important;
+}
 
 
 
