@@ -2291,13 +2291,12 @@ function startExperiment() {
 	budgetAlertShown = false;
 	updateHeaderUI();
 
-    // Hide the start screen
-    document.getElementById("startScreen").style.display = "none";
+	// Hide the start screen
+	document.getElementById("startScreen").style.display = "none";
 
-    // Reset experiment timer
-    experimentStart = Date.now();
-	
-	
+	// Reset experiment timer
+	experimentStart = Date.now();
+
 	overStartMs = null;
 	overTotalMs = 0;
 	overMax = 0;
@@ -2305,22 +2304,16 @@ function startExperiment() {
 	recoveredMs = null;
 	removalsAfterFirstOver = 0;
 	lastBudgetCheckMs = 0;
-	
-	  // Forza partenza dall'alto, senza zoom
-    window.scrollTo(0, 0);
-    document.body.style.zoom = "1";
 
-        // 1. Mostra il supermercato
-    document.getElementById("categoryBar").style.display = "flex";
-    document.getElementById("shelf").style.display = "block";
-    
-    // 2. FORZA LO SBLOCCO DELLO SCROLL
-    document.body.classList.remove("form-open");
-    document.body.style.overflow = "auto";
-    document.body.style.height = "auto";
-    
-    // 3. Ricalcola i prodotti
-    buildShelf();
+	window.scrollTo(0, 0);
+
+	document.getElementById("header").style.display = "flex";
+	document.getElementById("categoryBar").style.display = "flex";
+	document.getElementById("shelf").style.display = "block";
+	document.getElementById("cartPage").style.display = "none";
+
+	buildShelf();
+
 
 
 }
