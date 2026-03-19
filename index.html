@@ -2308,7 +2308,7 @@ function startExperiment() {
 
         // 1. Mostra il supermercato
     document.getElementById("categoryBar").style.display = "flex";
-    document.getElementById("shelf").style.display = "block";
+    document.getElementById("shelf").style.display = "visible";
     
     // 2. FORZA LO SBLOCCO DELLO SCROLL
     document.body.classList.remove("form-open");
@@ -2795,6 +2795,10 @@ function finishShopping() {
 function showParticipantForm() {
     document.getElementById("introScreen").style.display = "none";
     document.getElementById("startScreen").style.display = "flex";
+
+    if (window.innerWidth <= 800) {
+        document.getElementById("shelf").style.visibility = "hidden";
+    }
 }
 
 
