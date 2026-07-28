@@ -1,6 +1,6 @@
 {
   "name": "Supermarket Experiment",
-  "short_name": "SuperExp",
+  "short_name": "tesi polimi",
   "icons": [
     { "src": "icon-192.JPG", "sizes": "192x192", "type": "image/png" },
     { "src": "icon-512.JPG", "sizes": "512x512", "type": "image/png" }
