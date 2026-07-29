@@ -389,7 +389,6 @@ button {
     body {
         padding-top: 100px;
         zoom: 0.95;
-		  overflow-x: hidden;
     }
 
     #shelf {
@@ -461,7 +460,7 @@ button {
 	body {
 	padding-top: 80px;
 	zoom: 1;
-    overflow-x: hidden;
+	  overflow-x: hidden;
 	}
 	
 	
@@ -518,7 +517,7 @@ button {
 
 
 	.product {
-    width: 70%;
+    width: 98%;
     margin: 0 auto;
 }
 	
@@ -544,10 +543,11 @@ button {
 /* 🟢 Smartphone (max-width: 800px) */
 @media (max-width: 800px) {
     /* niente layout flex che spinge tutto a destra */
- html, body {
-    overflow-x: hidden !important;
-    max-width: 100% !important;
-  }
+    body {
+        display: block;
+        padding-top: 0px;
+		
+    }
 	
 	
 	    
@@ -688,10 +688,10 @@ button {
         gap: 12px;
     }
 
-   .product {
-    width: 93% !important;
-    margin: 0 auto !important;
-}
+    .product {
+        height: 180px;
+        padding: 6px;
+    }
 
     .product img {
         height: 90px;
@@ -754,7 +754,7 @@ button {
     }
 	
 	html, body {
-        overflow-x: hidden !important;
+        overflow-x: hidden;
     }
 	
 	.product img {
