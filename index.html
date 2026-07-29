@@ -544,11 +544,10 @@ button {
 /* 🟢 Smartphone (max-width: 800px) */
 @media (max-width: 800px) {
     /* niente layout flex che spinge tutto a destra */
-    body {
-        display: block;
-        padding-top: 0px;
-		  overflow-x: hidden;
-    }
+ html, body {
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+  }
 	
 	
 	    
